@@ -36,17 +36,32 @@
             background-color: #0056b3;
         }
 
-        /* Стили для контента страницы */
+        /* Стили для основного контента */
         .content {
-            padding: 20px;
+            position: relative;
             text-align: center;
+            padding: 20px;
         }
 
-        /* Стили для текста, который будет отображаться при нажатии кнопки */
+        /* Стили для изображения */
+        .content img {
+            width: 300px;
+        }
+
+        /* Стили для текста поверх изображения */
         #text-container {
-            margin-top: 20px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
+            padding: 10px;
+            border-radius: 5px;
             font-size: 20px;
             color: #333;
+            width: calc(100% - 40px); /* Ширина текста */
+            max-width: 300px; /* Максимальная ширина текста */
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -62,9 +77,9 @@
     <div class="content">
         <h1>Welcome to Your Webpage</h1>
         <p>Here you can add more content or images as needed.</p>
-        <img src="файл-4OWPJlXgoJyfmQxjZkKYUfBa (6).webp" alt="Image Example" style="width:300px;">
+        <img src="файл-4OWPJlXgoJyfmQxjZkKYUfBa (6).webp" alt="Image Example">
 
-        <!-- Контейнер для отображения текста -->
+        <!-- Контейнер для отображения текста поверх изображения -->
         <div id="text-container"></div>
     </div>
 
