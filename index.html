@@ -25,10 +25,10 @@
         .button-container button {
             background-color: #007bff;
             color: white;
-            padding: 15px 30px;
+            padding: 10px 20px; /* Уменьшен размер кнопок */
             border: none;
             border-radius: 5px;
-            font-size: 18px;
+            font-size: 14px; /* Уменьшен размер текста на кнопках */
             cursor: pointer;
         }
 
@@ -36,10 +36,48 @@
             background-color: #0056b3;
         }
 
-        /* Стили для контента страницы */
+        /* Стили для основного контента */
         .content {
-            padding: 20px;
+            position: relative;
             text-align: center;
+            padding: 20px;
+        }
+
+        /* Стили для изображения */
+        .content img {
+            width: 300px;
+        }
+
+        /* Стили для текста поверх изображения */
+        #text-container {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+            width: calc(100% - 40px); /* Ширина текста */
+            max-width: 300px; /* Максимальная ширина текста */
+            margin: 0 auto;
+        }
+
+        /* Стили для ссылок */
+        .links {
+            margin-top: 20px;
+        }
+
+        .links a {
+            display: block;
+            margin: 5px 0;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .links a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -47,22 +85,35 @@
 
     <!-- Контейнер для кнопок -->
     <div class="button-container">
-        <button onclick="playAudio('AudioMix_fon-QR_code_rom2.mp3')">Play Romanian Audio</button>
-        <button onclick="playAudio('AudioMix_fon-QR_code_rus2.mp3')">Play Russian Audio</button>
+        <button onclick="playAudioAndShowText('AudioMix_fon-QR_code_rom2.mp3', 'Acesta este textul în limba română.')">Play Romanian Audio</button>
+        <button onclick="playAudioAndShowText('AudioMix_fon-QR_code_rus2.mp3', 'Это текст на русском языке.')">Play Russian Audio</button>
     </div>
 
     <!-- Основной контент страницы -->
     <div class="content">
         <h1>Welcome to Your Webpage</h1>
         <p>Here you can add more content or images as needed.</p>
-        <img src="файл-4OWPJlXgoJyfmQxjZkKYUfBa (6).webp" alt="Image Example" style="width:300px;">
+        <img src="файл-4OWPJlXgoJyfmQxjZkKYUfBa (6).webp" alt="Image Example">
+
+        <!-- Контейнер для отображения текста поверх изображения -->
+        <div id="text-container"></div>
+        
+        <!-- Ссылки на объявления -->
+        <div class="links">
+            <a href="https://www.example.com/makler" target="_blank">Makler Advertisement</a>
+            <a href="https://www.example.com/999" target="_blank">999 Advertisement</a>
+        </div>
     </div>
 
     <script>
-        // Функция для воспроизведения аудио
-        function playAudio(file) {
-            var audio = new Audio(file);
+        // Функция для воспроизведения аудио и отображения текста
+        function playAudioAndShowText(audioFile, text) {
+            // Воспроизведение аудио
+            var audio = new Audio(audioFile);
             audio.play();
+
+            // Отображение текста
+            document.getElementById('text-container').innerText = text;
         }
     </script>
 
