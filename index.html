@@ -36,32 +36,10 @@
             background-color: #0056b3;
         }
 
-        /* Стили для основного контента */
+        /* Стили для контента страницы */
         .content {
-            position: relative;
-            text-align: center;
             padding: 20px;
-        }
-
-        /* Стили для изображения */
-        .content img {
-            width: 300px;
-        }
-
-        /* Стили для текста поверх изображения */
-        #text-container {
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный фон */
-            padding: 10px;
-            border-radius: 5px;
-            font-size: 20px;
-            color: #333;
-            width: calc(100% - 40px); /* Ширина текста */
-            max-width: 300px; /* Максимальная ширина текста */
-            margin: 0 auto;
+            text-align: center;
         }
     </style>
 </head>
@@ -69,29 +47,22 @@
 
     <!-- Контейнер для кнопок -->
     <div class="button-container">
-        <button onclick="playAudioAndShowText('AudioMix_fon-QR_code_rom2.mp3', 'Acesta este textul în limba română.')">Play Romanian Audio</button>
-        <button onclick="playAudioAndShowText('AudioMix_fon-QR_code_rus2.mp3', 'Это текст на русском языке.')">Play Russian Audio</button>
+        <button onclick="playAudio('AudioMix_fon-QR_code_rom2.mp3')">Play Romanian Audio</button>
+        <button onclick="playAudio('AudioMix_fon-QR_code_rus2.mp3')">Play Russian Audio</button>
     </div>
 
     <!-- Основной контент страницы -->
     <div class="content">
         <h1>Welcome to Your Webpage</h1>
         <p>Here you can add more content or images as needed.</p>
-        <img src="файл-4OWPJlXgoJyfmQxjZkKYUfBa (6).webp" alt="Image Example">
-
-        <!-- Контейнер для отображения текста поверх изображения -->
-        <div id="text-container"></div>
+        <img src="файл-4OWPJlXgoJyfmQxjZkKYUfBa (6).webp" alt="Image Example" style="width:300px;">
     </div>
 
     <script>
-        // Функция для воспроизведения аудио и отображения текста
-        function playAudioAndShowText(audioFile, text) {
-            // Воспроизведение аудио
-            var audio = new Audio(audioFile);
+        // Функция для воспроизведения аудио
+        function playAudio(file) {
+            var audio = new Audio(file);
             audio.play();
-
-            // Отображение текста
-            document.getElementById('text-container').innerText = text;
         }
     </script>
 
