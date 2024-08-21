@@ -1,61 +1,82 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Выбор языка</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Webpage</title>
     <style>
+        /* Общие стили для страницы */
         body {
-            text-align: center;
             font-family: Arial, sans-serif;
-            margin-top: 50px;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        button {
+
+        /* Стили для контейнера кнопок */
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        /* Стили для кнопок */
+        .button-container button {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
             font-size: 18px;
-            padding: 10px 20px;
-            margin: 20px;
             cursor: pointer;
+        }
+
+        .button-container button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Стили для контента страницы */
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Стили для текста, который будет отображаться при нажатии кнопки */
+        #text-container {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
         }
     </style>
 </head>
 <body>
 
-    <h2>Выберите язык:</h2>
-    <button onclick="selectLanguage('ru')">Русский</button>
-    <button onclick="selectLanguage('ro')">Română</button>
+    <!-- Контейнер для кнопок -->
+    <div class="button-container">
+        <button onclick="playAudioAndShowText('AudioMix_fon-QR_code_rom2.mp3', 'Acesta este textul în limba română.')">Play Romanian Audio</button>
+        <button onclick="playAudioAndShowText('AudioMix_fon-QR_code_rus2.mp3', 'Это текст на русском языке.')">Play Russian Audio</button>
+    </div>
 
-    <div id="content" style="display:none;">
-        <p id="message"></p>
-        <audio id="audio" controls autoplay>
-            <source id="audioSource" src="" type="audio/mpeg">
-            Ваш браузер не поддерживает элемент <code>audio</code>.
-        </audio>
-        <p><a id="link1" href="#" target="_blank">Ссылка 1</a></p>
-        <p><a id="link2" href="#" target="_blank">Ссылка 2</a></p>
+    <!-- Основной контент страницы -->
+    <div class="content">
+        <h1>Welcome to Your Webpage</h1>
+        <p>Here you can add more content or images as needed.</p>
+        <img src="файл-4OWPJlXgoJyfmQxjZkKYUfBa (6).webp" alt="Image Example" style="width:300px;">
+
+        <!-- Контейнер для отображения текста -->
+        <div id="text-container"></div>
     </div>
 
     <script>
-        function selectLanguage(lang) {
-            var message, audioSrc, link1, link2;
-            if (lang === 'ru') {
-                message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rus2.mp3"; // Русская озвучка
-            } else if (lang === 'ro') {
-                message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3"; // Румынская озвучка
-            }
-            
-            link1 = "https://999.md/ro/87868297";
-            link2 = "https://makler.md/ru/job/education/an/61028";
+        // Функция для воспроизведения аудио и отображения текста
+        function playAudioAndShowText(audioFile, text) {
+            // Воспроизведение аудио
+            var audio = new Audio(audioFile);
+            audio.play();
 
-            document.getElementById('message').textContent = message;
-            document.getElementById('audioSource').src = audioSrc;
-            document.getElementById('audio').load();
-            document.getElementById('link1').href = link1;
-            document.getElementById('link1').textContent = "Объявление на 999.md";
-            document.getElementById('link2').href = link2;
-            document.getElementById('link2').textContent = "Объявление на Makler.md";
-            
-            document.getElementById('content').style.display = 'block';
+            // Отображение текста
+            document.getElementById('text-container').innerText = text;
         }
     </script>
 
