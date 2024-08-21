@@ -15,6 +15,12 @@
             margin: 20px;
             cursor: pointer;
         }
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+            display: block; /* Изображение отображается сразу */
+        }
     </style>
 </head>
 <body>
@@ -22,6 +28,9 @@
     <h2>Выберите язык:</h2>
     <button onclick="selectLanguage('ru')">Русский</button>
     <button onclick="selectLanguage('ro')">Română</button>
+
+    <!-- Изображение будет видно сразу -->
+    <img id="languageImage" src="https://raw.githubusercontent.com/Saricov/math-999/main/file-4OWPJlXgoJyfmQxjZkKYUfBa%20(6).webp" alt="Математик">
 
     <div id="content" style="display:none;">
         <p id="message"></p>
@@ -54,7 +63,7 @@
             document.getElementById('link1').textContent = "Объявление на 999.md";
             document.getElementById('link2').href = link2;
             document.getElementById('link2').textContent = "Объявление на Makler.md";
-            
+
             document.getElementById('content').style.display = 'block';
         }
     </script>
