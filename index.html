@@ -10,7 +10,7 @@
             margin-top: 50px;
         }
         h2 {
-            font-size: 30px; /* Увеличен размер текста "Выберите язык" */
+            font-size: 30px; /* Размер текста "Выберите язык" */
             margin-right: 20px;
             display: inline-block;
         }
@@ -28,7 +28,7 @@
             display: block;
         }
         #content p {
-            font-size: 13px; /* Еще немного уменьшен размер шрифта для текста под изображением */
+            font-size: 13.5px; /* Плавное уменьшение шрифта для текста под изображением */
         }
     </style>
 </head>
@@ -46,35 +46,4 @@
             <source id="audioSource" src="" type="audio/mpeg">
             Ваш браузер не поддерживает элемент <code>audio</code>.
         </audio>
-        <p><a id="link1" href="#" target="_blank">Объявление на 999.md</a></p>
-        <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
-    </div>
-
-    <script>
-        function selectLanguage(lang) {
-            var message, audioSrc, link1, link2;
-            if (lang === 'ru') {
-                message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rus2.mp3"; // Русская озвучка
-            } else if (lang === 'ro') {
-                message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3"; // Румынская озвучка
-            }
-            
-            link1 = "https://999.md/ro/87868297";
-            link2 = "https://makler.md/ru/job/education/an/61028";
-
-            document.getElementById('message').textContent = message;
-            document.getElementById('audioSource').src = audioSrc;
-            document.getElementById('audio').load();
-            document.getElementById('link1').href = link1;
-            document.getElementById('link1').textContent = "Объявление на 999.md";
-            document.getElementById('link2').href = link2;
-            document.getElementById('link2').textContent = "Объявление на Makler.md";
-
-            document.getElementById('content').style.display = 'block';
-        }
-    </script>
-
-</body>
-</html>
+        <
