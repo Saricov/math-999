@@ -9,11 +9,24 @@
             font-family: Arial, sans-serif;
             margin-top: 50px;
         }
+        h2 {
+            font-size: 30px; /* Увеличен размер текста "Выберите язык" */
+            margin-bottom: 20px;
+        }
         button {
-            font-size: 18px;
-            padding: 10px 20px;
+            font-size: 26px; /* Еще больше увеличен размер шрифта на кнопках */
+            padding: 15px 30px;
             margin: 20px;
             cursor: pointer;
+        }
+        img {
+            margin-top: 20px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        #content p {
+            font-size: 14px; /* Уменьшен размер шрифта для текста под изображением до 14px */
         }
     </style>
 </head>
@@ -23,14 +36,16 @@
     <button onclick="selectLanguage('ru')">Русский</button>
     <button onclick="selectLanguage('ro')">Română</button>
 
+    <img id="languageImage" src="https://raw.githubusercontent.com/Saricov/math-999/main/file-4OWPJlXgoJyfmQxjZkKYUfBa%20(6).webp" alt="Математик">
+
     <div id="content" style="display:none;">
         <p id="message"></p>
         <audio id="audio" controls autoplay>
             <source id="audioSource" src="" type="audio/mpeg">
             Ваш браузер не поддерживает элемент <code>audio</code>.
         </audio>
-        <p><a id="link1" href="#" target="_blank">Ссылка 1</a></p>
-        <p><a id="link2" href="#" target="_blank">Ссылка 2</a></p>
+        <p><a id="link1" href="#" target="_blank">Объявление на 999.md</a></p>
+        <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
     </div>
 
     <script>
@@ -54,7 +69,7 @@
             document.getElementById('link1').textContent = "Объявление на 999.md";
             document.getElementById('link2').href = link2;
             document.getElementById('link2').textContent = "Объявление на Makler.md";
-            
+
             document.getElementById('content').style.display = 'block';
         }
     </script>
