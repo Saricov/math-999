@@ -11,13 +11,19 @@
         }
         button {
             font-size: 18px;
-            padding: 10px 20px;
+            padding: 15px 30px;
             margin: 20px;
             cursor: pointer;
         }
         #animation {
-            max-width: 100%;
+            width: 100%;
             height: auto;
+        }
+        #language-title {
+            font-size: 22px;
+            background-color: yellow; /* Фон для выделения заголовка */
+            padding: 10px;
+            display: inline-block;
         }
     </style>
 </head>
@@ -49,7 +55,14 @@
     <script>
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
+
+            // Останавливаем фоновый звук
+            var initialAudio = document.getElementById('initial-audio');
+            initialAudio.pause();
+            initialAudio.currentTime = 0; // Сбрасываем время воспроизведения
+
             document.getElementById('animation-container').style.display = 'none'; // Скрыть анимацию при выборе языка
+
             if (lang === 'ru') {
                 message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
                 audioSrc = "https://github.com/Saricov/math-999/raw/main/AUD-Real-Voice-1723727877903718.mp3"; // Русская озвучка
