@@ -24,7 +24,7 @@
             cursor: pointer;
             display: inline-block;
         }
-        img {
+        img, video {
             margin-top: 20px;
             max-width: 100%;
             height: auto;
@@ -32,6 +32,9 @@
         }
         #content p, #content a {
             font-size: 18px !important;
+        }
+        audio {
+            display: none;
         }
     </style>
 </head>
@@ -41,7 +44,12 @@
     <button onclick="selectLanguage('ru')">Русский</button>
     <button onclick="selectLanguage('ro')">Română</button>
 
-    <img id="languageImage" src="https://github.com/Saricov/math-999/raw/main/hands.png" alt="Новое изображение">
+    <!-- Анимация и звук, которые появляются сразу -->
+    <img id="languageImage" src="https://github.com/Saricov/math-999/blob/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
+    <audio id="backgroundAudio" controls autoplay>
+        <source src="https://github.com/Saricov/math-999/raw/main/Dave%20Porter%20-%20Breaking%20Bad%20Main%20Title%20Theme%20(Extended)%20(из%20игры%20«Во%20все%20тяжкие»).mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает элемент <code>audio</code>.
+    </audio>
 
     <div id="content" style="display:none;">
         <p id="message"></p>
@@ -54,6 +62,7 @@
     </div>
 
     <script>
+        // Функция для смены изображения и звука после выбора языка
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
             if (lang === 'ru') {
@@ -63,8 +72,8 @@
                 message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
                 audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3"; // Румынская озвучка
             }
-            
-            link1 = "https://999.md/ru/88168207";
+
+            link1 = "https://999.md/ro/87868297";
             link2 = "https://makler.md/ru/job/education/an/61028";
 
             document.getElementById('message').textContent = message;
@@ -74,6 +83,10 @@
             document.getElementById('link1').textContent = "Объявление на 999.md";
             document.getElementById('link2').href = link2;
             document.getElementById('link2').textContent = "Объявление на Makler.md";
+
+            // Смена анимации на изображение hands.png
+            document.getElementById('languageImage').src = "https://github.com/Saricov/math-999/raw/main/hands.png";
+            document.getElementById('backgroundAudio').pause(); // Остановить фоновую музыку
 
             document.getElementById('content').style.display = 'block';
         }
