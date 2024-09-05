@@ -10,45 +10,44 @@
             margin-top: 50px;
         }
         button {
-            font-size: 18px;
-            padding: 10px 20px;
+            font-size: 20px;
+            padding: 15px 30px;
             margin: 20px;
             cursor: pointer;
+            background-color: lightyellow; /* Фон кнопок */
+            border: 2px solid black;
         }
-        #languageSection {
-            margin-top: 20px;
+        h2 {
+            font-size: 24px;
+            color: darkblue;
+            background-color: yellow; /* Фон заголовка */
         }
         img {
-            width: 100%; /* Увеличивает изображение до ширины экрана */
+            max-width: 100%;
             height: auto;
-            margin-top: 20px;
         }
-        #content {
-            display: none;
-            margin-top: 20px;
+        #animation {
+            display: block;
+            margin: 0 auto;
+            width: 100%; /* Изображение на всю ширину экрана */
         }
     </style>
 </head>
 <body>
 
     <h2>Выберите язык:</h2>
-    <div id="languageSection">
-        <button onclick="selectLanguage('ru')">Русский</button>
-        <button onclick="selectLanguage('ro')">Română</button>
-    </div>
+    <button onclick="selectLanguage('ru')">Русский</button>
+    <button onclick="selectLanguage('ro')">Română</button>
 
-    <!-- Анимация, которая появляется сразу -->
-    <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация" />
-
-    <!-- Аудио, которое воспроизводится сразу -->
+    <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
     <audio id="initialAudio" autoplay>
         <source src="https://github.com/Saricov/math-999/raw/main/Dave%20Porter%20-%20Breaking%20Bad%20Main%20Title%20Theme%20(Extended)%20(из%20игры%20«Во%20все%20тяжкие»).mp3" type="audio/mpeg">
         Ваш браузер не поддерживает элемент <code>audio</code>.
     </audio>
 
-    <div id="content">
-        <img id="finalImage" src="https://github.com/Saricov/math-999/raw/main/hands.png" alt="Руки" />
+    <div id="content" style="display:none;">
         <p id="message"></p>
+        <img id="hands" src="https://github.com/Saricov/math-999/raw/main/hands.png" alt="Изображение рук">
         <audio id="audio" controls autoplay>
             <source id="audioSource" src="" type="audio/mpeg">
             Ваш браузер не поддерживает элемент <code>audio</code>.
@@ -58,17 +57,8 @@
     </div>
 
     <script>
-        // Программно включаем звук при загрузке страницы
-        window.onload = function() {
-            var initialAudio = document.getElementById('initialAudio');
-            initialAudio.play().catch(function(error) {
-                console.log('Автовоспроизведение звука заблокировано: ' + error);
-            });
-        };
-
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
-            
             if (lang === 'ru') {
                 message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
                 audioSrc = "https://github.com/Saricov/math-999/raw/main/AUD-Real-Voice-1723727877903718.mp3"; // Русская озвучка
@@ -88,11 +78,6 @@
             document.getElementById('link2').href = link2;
             document.getElementById('link2').textContent = "Объявление на Makler.md";
 
-            // Скрыть анимацию и аудио
-            document.getElementById('animation').style.display = 'none';
-            document.getElementById('initialAudio').pause();
-
-            // Показать контент после выбора языка
             document.getElementById('content').style.display = 'block';
         }
     </script>
