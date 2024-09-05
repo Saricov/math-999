@@ -19,6 +19,9 @@
             width: 100%;
             height: auto;
         }
+        #message {
+            font-size: 18px; /* Увеличенный размер текста озвучки */
+        }
     </style>
 </head>
 <body>
@@ -44,9 +47,9 @@
             var message, audioSrc, link1, link2;
 
             // Stop the initial sound
-            var initialAudio = document.getElementById('initial-audio');
-            if (initialAudio) {
+            if (typeof initialAudio !== 'undefined' && initialAudio !== null) {
                 initialAudio.pause();
+                initialAudio.currentTime = 0; // Сбрасываем звук к началу
             }
 
             if (lang === 'ru') {
@@ -67,7 +70,7 @@
             document.getElementById('link2').href = link2;
 
             document.getElementById('content').style.display = 'block';
-            document.getElementById('animation').style.display = 'none'; // Скрываем анимацию после выбора языка
+            document.getElementById('animation').src = "https://github.com/Saricov/math-999/raw/main/hands.png"; // Меняем анимацию на изображение с руками
         }
 
         // Initial sound playback
