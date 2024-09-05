@@ -9,42 +9,45 @@
             font-family: Arial, sans-serif;
             margin-top: 50px;
         }
-        button {
-            font-size: 20px; /* Увеличенный размер текста на кнопках */
-            padding: 15px 30px; /* Увеличенные кнопки */
-            margin: 20px;
-            cursor: pointer;
+        h2 {
+            font-size: 30px;
+            margin-right: 20px;
+            display: inline-block;
+            background-color: yellow;
+            padding: 10px;
+            border-radius: 5px;
         }
-        #language-title {
-            font-size: 24px; /* Увеличенный размер текста заголовка */
-            background-color: yellow; /* Жёлтый фон для заголовка */
-            display: inline-block; /* Фон только на ширину текста */
-            padding: 10px; /* Отступы вокруг текста заголовка */
-            margin: 20px; /* Отступы сверху и снизу */
+        button {
+            font-size: 26px;
+            padding: 15px 30px;
+            margin: 10px;
+            cursor: pointer;
+            display: inline-block;
         }
         #animation {
             width: 100%;
             height: auto;
+            display: block;
+            margin-top: 20px;
+        }
+        #content p, #content a {
+            font-size: 18px;
+        }
+        #content p, #content a {
+            font-size: 20px;
         }
         #message {
-            font-size: 20px; /* Увеличенный размер текста озвучки */
-        }
-        #content p {
-            font-size: 18px; /* Увеличенный размер шрифта для текста под изображением */
-            margin: 10px 0; /* Отступы сверху и снизу */
-        }
-        #content a {
-            font-size: 18px; /* Увеличенный размер шрифта для ссылок */
-            color: blue; /* Цвет ссылок */
-            text-decoration: underline; /* Подчёркивание ссылок */
+            font-size: 20px;
         }
     </style>
 </head>
 <body>
 
-    <h2 id="language-title">Выберите язык:</h2>
+    <h2>Выберите язык:</h2>
     <button onclick="selectLanguage('ru')">Русский</button>
     <button onclick="selectLanguage('ro')">Română</button>
+
+    <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
 
     <div id="content" style="display:none;">
         <p id="message"></p>
@@ -52,41 +55,41 @@
             <source id="audioSource" src="" type="audio/mpeg">
             Ваш браузер не поддерживает элемент <code>audio</code>.
         </audio>
-        <p><a id="link1" href="https://999.md/ro/88168207" target="_blank">Объявление на 999.md</a></p>
-        <p><a id="link2" href="https://makler.md/ru/job/education/an/61028" target="_blank">Объявление на Makler.md</a></p>
+        <p><a id="link1" href="#" target="_blank">Объявление на 999.md</a></p>
+        <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
     </div>
-
-    <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
 
     <script>
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
 
             // Stop the initial sound
-            if (typeof initialAudio !== 'undefined' && initialAudio !== null) {
+            var initialAudio = document.getElementById('initial-audio');
+            if (initialAudio) {
                 initialAudio.pause();
-                initialAudio.currentTime = 0; // Сбрасываем звук к началу
             }
 
             if (lang === 'ru') {
-                message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях.";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rus2.mp3"; // Новая русская озвучка
+                message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
+                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rus2.mp3";
             } else if (lang === 'ro') {
-                message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre.";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3"; // Новая румынская озвучка
+                message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
+                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3";
             }
 
-            link1 = "https://999.md/ro/88168207"; // Новая ссылка на 999.md
-            link2 = "https://makler.md/ru/job/education/an/61028"; // Ссылка на Makler.md
+            link1 = "https://999.md/ro/88168207";
+            link2 = "https://makler.md/ru/job/education/an/61028";
 
             document.getElementById('message').textContent = message;
             document.getElementById('audioSource').src = audioSrc;
             document.getElementById('audio').load();
             document.getElementById('link1').href = link1;
+            document.getElementById('link1').textContent = "Объявление на 999.md";
             document.getElementById('link2').href = link2;
+            document.getElementById('link2').textContent = "Объявление на Makler.md";
 
             document.getElementById('content').style.display = 'block';
-            document.getElementById('animation').src = "https://github.com/Saricov/math-999/raw/main/hands.png"; // Меняем анимацию на изображение с руками
+            document.getElementById('animation').style.display = 'none'; // Скрываем анимацию после выбора языка
         }
 
         // Initial sound playback
