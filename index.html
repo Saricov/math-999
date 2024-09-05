@@ -11,19 +11,13 @@
         }
         button {
             font-size: 18px;
-            padding: 15px 30px;
+            padding: 10px 20px;
             margin: 20px;
             cursor: pointer;
         }
         #animation {
             width: 100%;
             height: auto;
-        }
-        #language-title {
-            font-size: 22px;
-            background-color: yellow; /* Фон для выделения заголовка */
-            padding: 10px;
-            display: inline-block;
         }
     </style>
 </head>
@@ -33,57 +27,52 @@
     <button onclick="selectLanguage('ru')">Русский</button>
     <button onclick="selectLanguage('ro')">Română</button>
 
-    <div id="animation-container">
-        <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
-        <audio id="initial-audio" autoplay>
-            <source src="https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3" type="audio/mpeg">
-            Ваш браузер не поддерживает элемент <code>audio</code>.
-        </audio>
-    </div>
-
     <div id="content" style="display:none;">
         <p id="message"></p>
-        <img id="hands" src="https://github.com/Saricov/math-999/raw/main/hands.png" alt="Изображение с руками" style="max-width: 100%; height: auto;">
         <audio id="audio" controls autoplay>
             <source id="audioSource" src="" type="audio/mpeg">
             Ваш браузер не поддерживает элемент <code>audio</code>.
         </audio>
-        <p><a id="link1" href="#" target="_blank">Ссылка 1</a></p>
-        <p><a id="link2" href="#" target="_blank">Ссылка 2</a></p>
+        <p><a id="link1" href="https://999.md/ro/88168207" target="_blank">Объявление на 999.md</a></p>
+        <p><a id="link2" href="https://makler.md/ru/job/education/an/61028" target="_blank">Объявление на Makler.md</a></p>
     </div>
+
+    <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
 
     <script>
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
 
-            // Останавливаем фоновый звук
+            // Stop the initial sound
             var initialAudio = document.getElementById('initial-audio');
-            initialAudio.pause();
-            initialAudio.currentTime = 0; // Сбрасываем время воспроизведения
-
-            document.getElementById('animation-container').style.display = 'none'; // Скрыть анимацию при выборе языка
+            if (initialAudio) {
+                initialAudio.pause();
+            }
 
             if (lang === 'ru') {
-                message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
+                message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях.";
                 audioSrc = "https://github.com/Saricov/math-999/raw/main/AUD-Real-Voice-1723727877903718.mp3"; // Русская озвучка
             } else if (lang === 'ro') {
-                message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
+                message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre.";
                 audioSrc = "https://github.com/Saricov/math-999/raw/main/AUD-Real-Voice-1723739489490483.mp3"; // Румынская озвучка
             }
-            
-            link1 = "https://999.md/ro/87868297";
-            link2 = "https://makler.md/ru/job/education/an/61028";
+
+            link1 = "https://999.md/ro/88168207"; // Новая ссылка на 999.md
+            link2 = "https://makler.md/ru/job/education/an/61028"; // Ссылка на Makler.md
 
             document.getElementById('message').textContent = message;
             document.getElementById('audioSource').src = audioSrc;
             document.getElementById('audio').load();
             document.getElementById('link1').href = link1;
-            document.getElementById('link1').textContent = "Объявление на 999.md";
             document.getElementById('link2').href = link2;
-            document.getElementById('link2').textContent = "Объявление на Makler.md";
-            
+
             document.getElementById('content').style.display = 'block';
+            document.getElementById('animation').style.display = 'none'; // Скрываем анимацию после выбора языка
         }
+
+        // Initial sound playback
+        var initialAudio = new Audio('https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3');
+        initialAudio.play();
     </script>
 
 </body>
