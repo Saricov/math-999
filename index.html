@@ -9,68 +9,64 @@
             font-family: Arial, sans-serif;
             margin-top: 50px;
         }
-        h2 {
-            font-size: 30px;
-            margin-right: 20px;
-            display: inline-block;
-            background-color: yellow;
-            padding: 10px;
-            border-radius: 5px;
-        }
         button {
-            font-size: 26px;
-            padding: 15px 30px;
-            margin: 10px;
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 20px;
             cursor: pointer;
-            display: inline-block;
         }
-        img, video {
+        #languageSection {
             margin-top: 20px;
+        }
+        img {
             max-width: 100%;
             height: auto;
-            display: block;
+            margin-top: 20px;
         }
-        #content p, #content a {
-            font-size: 18px !important;
-        }
-        audio {
+        #content {
             display: none;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
     <h2>Выберите язык:</h2>
-    <button onclick="selectLanguage('ru')">Русский</button>
-    <button onclick="selectLanguage('ro')">Română</button>
+    <div id="languageSection">
+        <button onclick="selectLanguage('ru')">Русский</button>
+        <button onclick="selectLanguage('ro')">Română</button>
+    </div>
 
-    <!-- Анимация и звук, которые появляются сразу -->
-    <img id="languageImage" src="https://github.com/Saricov/math-999/blob/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
-    <audio id="backgroundAudio" controls autoplay>
+    <!-- Анимация, которая появляется сразу -->
+    <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация" />
+
+    <!-- Аудио, которое воспроизводится сразу -->
+    <audio id="initialAudio" autoplay>
         <source src="https://github.com/Saricov/math-999/raw/main/Dave%20Porter%20-%20Breaking%20Bad%20Main%20Title%20Theme%20(Extended)%20(из%20игры%20«Во%20все%20тяжкие»).mp3" type="audio/mpeg">
         Ваш браузер не поддерживает элемент <code>audio</code>.
     </audio>
 
-    <div id="content" style="display:none;">
+    <div id="content">
+        <img id="finalImage" src="https://github.com/Saricov/math-999/raw/main/hands.png" alt="Руки" />
         <p id="message"></p>
         <audio id="audio" controls autoplay>
             <source id="audioSource" src="" type="audio/mpeg">
             Ваш браузер не поддерживает элемент <code>audio</code>.
         </audio>
-        <p><a id="link1" href="#" target="_blank">Объявление на 999.md</a></p>
-        <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
+        <p><a id="link1" href="#" target="_blank">Ссылка 1</a></p>
+        <p><a id="link2" href="#" target="_blank">Ссылка 2</a></p>
     </div>
 
     <script>
-        // Функция для смены изображения и звука после выбора языка
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
+            
             if (lang === 'ru') {
                 message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rus2.mp3"; // Русская озвучка
+                audioSrc = "https://github.com/Saricov/math-999/raw/main/AUD-Real-Voice-1723727877903718.mp3"; // Русская озвучка
             } else if (lang === 'ro') {
                 message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3"; // Румынская озвучка
+                audioSrc = "https://github.com/Saricov/math-999/raw/main/AUD-Real-Voice-1723739489490483.mp3"; // Румынская озвучка
             }
 
             link1 = "https://999.md/ro/87868297";
@@ -84,10 +80,11 @@
             document.getElementById('link2').href = link2;
             document.getElementById('link2').textContent = "Объявление на Makler.md";
 
-            // Смена анимации на изображение hands.png
-            document.getElementById('languageImage').src = "https://github.com/Saricov/math-999/raw/main/hands.png";
-            document.getElementById('backgroundAudio').pause(); // Остановить фоновую музыку
+            // Скрыть анимацию и аудио
+            document.getElementById('animation').style.display = 'none';
+            document.getElementById('initialAudio').pause();
 
+            // Показать контент после выбора языка
             document.getElementById('content').style.display = 'block';
         }
     </script>
