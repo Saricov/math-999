@@ -58,6 +58,14 @@
     </div>
 
     <script>
+        // Программно включаем звук при загрузке страницы
+        window.onload = function() {
+            var initialAudio = document.getElementById('initialAudio');
+            initialAudio.play().catch(function(error) {
+                console.log('Автовоспроизведение звука заблокировано: ' + error);
+            });
+        };
+
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
             
