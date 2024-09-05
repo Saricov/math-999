@@ -57,14 +57,14 @@
     </div>
 
     <script>
+        var initialAudio = new Audio('https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3');
+
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
 
-            // Stop the initial sound
-            var initialAudio = document.getElementById('initial-audio');
-            if (initialAudio) {
-                initialAudio.pause();
-            }
+            // Stop and reset the initial sound
+            initialAudio.pause();
+            initialAudio.currentTime = 0;
 
             if (lang === 'ru') {
                 message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
@@ -73,7 +73,7 @@
                 message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
                 audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3";
             }
-
+            
             link1 = "https://999.md/ro/88168207";
             link2 = "https://makler.md/ru/job/education/an/61028";
 
@@ -90,7 +90,6 @@
         }
 
         // Initial sound playback
-        var initialAudio = new Audio('https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3');
         initialAudio.play();
     </script>
 
