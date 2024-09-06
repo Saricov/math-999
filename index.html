@@ -23,6 +23,7 @@
             margin: 10px;
             cursor: pointer;
             display: inline-block;
+            text-transform: none; /* Ensure no uppercase text */
         }
         #animation {
             width: 100%;
@@ -30,16 +31,16 @@
             display: block;
             margin-top: 20px;
         }
+        #englishText {
+            font-size: 18px; /* Same size as other text */
+            margin-top: 20px;
+            display: block;
+        }
         #content p, #content a {
             font-size: 18px;
         }
         #message {
             font-size: 18px;
-        }
-        #englishText {
-            font-size: 18px;
-            margin-top: 20px;
-            display: block;
         }
     </style>
 </head>
@@ -59,8 +60,8 @@
             <source id="audioSource" src="" type="audio/mpeg">
             Your browser does not support the <code>audio</code> element.
         </audio>
-        <p><a id="link1" href="#" target="_blank">Ad on 999.md</a></p>
-        <p><a id="link2" href="#" target="_blank">Ad on Makler.md</a></p>
+        <p><a id="link1" href="#" target="_blank">Link to 999.md</a></p>
+        <p><a id="link2" href="#" target="_blank">Link to Makler.md</a></p>
     </div>
 
     <script>
@@ -90,9 +91,9 @@
             document.getElementById('audioSource').src = audioSrc;
             document.getElementById('audio').load();
             document.getElementById('link1').href = link1;
-            document.getElementById('link1').textContent = "Ad on 999.md";
+            document.getElementById('link1').textContent = "Link to 999.md";
             document.getElementById('link2').href = link2;
-            document.getElementById('link2').textContent = "Ad on Makler.md";
+            document.getElementById('link2').textContent = "Link to Makler.md";
 
             document.getElementById('content').style.display = 'block';
             document.getElementById('animation').style.display = 'none'; // Hide the animation after language selection
