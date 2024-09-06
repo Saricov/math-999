@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Выбор языка</title>
+    <title>Language Selection</title>
     <style>
         body {
             text-align: center;
@@ -24,54 +24,44 @@
             cursor: pointer;
             display: inline-block;
         }
-        #animation {
-            width: 100%;
+        img {
+            margin-top: 20px;
+            max-width: 100%;
             height: auto;
             display: block;
-            margin-top: 20px;
         }
         #content p, #content a {
-            font-size: 18px;
-        }
-        #message {
             font-size: 18px;
         }
     </style>
 </head>
 <body>
 
-    <h2>Выберите язык:</h2>
-    <button onclick="selectLanguage('ru')">Русский</button>
-    <button onclick="selectLanguage('ro')">Română</button>
+    <h2>Choose Language:</h2>
+    <button onclick="selectLanguage('ru')">Russian</button>
+    <button onclick="selectLanguage('ro')">Romanian</button>
 
-    <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
+    <img id="languageImage" src="https://github.com/Saricov/math-999/raw/main/IMG-e6a53260e05b4327ffc55ffa6f8ca03c-V.jpg" alt="New Image">
 
     <div id="content" style="display:none;">
         <p id="message"></p>
         <audio id="audio" controls autoplay>
             <source id="audioSource" src="" type="audio/mpeg">
-            Ваш браузер не поддерживает элемент <code>audio</code>.
+            Your browser does not support the <code>audio</code> element.
         </audio>
-        <p><a id="link1" href="#" target="_blank">Объявление на 999.md</a></p>
-        <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
+        <p><a id="link1" href="#" target="_blank">Advertisement on 999.md</a></p>
+        <p><a id="link2" href="#" target="_blank">Advertisement on Makler.md</a></p>
     </div>
 
     <script>
-        var initialAudio = new Audio('https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3');
-
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
-
-            // Stop and reset the initial sound
-            initialAudio.pause();
-            initialAudio.currentTime = 0;
-
             if (lang === 'ru') {
-                message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rus2.mp3";
+                message = "Hello! Want to improve your math skills? We can help you with any tasks. Follow the link to learn more about our classes. Simple and effective learning for your success. We are waiting for you!";
+                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rus2.mp3"; // Russian audio
             } else if (lang === 'ro') {
-                message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3";
+                message = "Hello! Do you want to improve your math knowledge? We help you solve any problem. Follow the link to find out more about our courses. Simple and effective learning for your success. We are waiting for you!";
+                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3"; // Romanian audio
             }
             
             link1 = "https://999.md/ro/88168207";
@@ -81,16 +71,12 @@
             document.getElementById('audioSource').src = audioSrc;
             document.getElementById('audio').load();
             document.getElementById('link1').href = link1;
-            document.getElementById('link1').textContent = "Объявление на 999.md";
+            document.getElementById('link1').textContent = "Advertisement on 999.md";
             document.getElementById('link2').href = link2;
-            document.getElementById('link2').textContent = "Объявление на Makler.md";
+            document.getElementById('link2').textContent = "Advertisement on Makler.md";
 
             document.getElementById('content').style.display = 'block';
-            document.getElementById('animation').style.display = 'none'; // Скрываем анимацию после выбора языка
         }
-
-        // Initial sound playback
-        initialAudio.play();
     </script>
 
 </body>
