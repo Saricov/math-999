@@ -24,7 +24,7 @@
             cursor: pointer;
             display: inline-block;
         }
-        #animation {
+        #animation, #handsImage {
             width: 100%;
             height: auto;
             display: block;
@@ -35,6 +35,9 @@
         }
         #message {
             font-size: 18px;
+        }
+        #handsImage {
+            display: none; /* Initially hidden */
         }
     </style>
 </head>
@@ -47,6 +50,7 @@
     <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
 
     <div id="content" style="display:none;">
+        <img id="handsImage" src="https://example.com/hands-image.png" alt="Картинка с руками"> <!-- Замените URL на реальный -->
         <p id="message"></p>
         <audio id="audio" controls autoplay>
             <source id="audioSource" src="" type="audio/mpeg">
@@ -69,13 +73,14 @@
             if (lang === 'ru') {
                 message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
                 audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rus2.mp3";
+                link1 = "https://999.md/ru/88168207";
+                link2 = "https://makler.md/ru/job/education/an/61028";
             } else if (lang === 'ro') {
                 message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
                 audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3";
+                link1 = "https://999.md/ro/88168207";
+                link2 = "https://makler.md/ro/job/education/an/61028";
             }
-            
-            link1 = "https://999.md/ro/88168207";
-            link2 = "https://makler.md/ru/job/education/an/61028";
 
             document.getElementById('message').textContent = message;
             document.getElementById('audioSource').src = audioSrc;
@@ -86,7 +91,8 @@
             document.getElementById('link2').textContent = "Объявление на Makler.md";
 
             document.getElementById('content').style.display = 'block';
-            document.getElementById('animation').style.display = 'none'; // Скрываем анимацию после выбора языка
+            document.getElementById('animation').style.display = 'none'; // Hide animation after language selection
+            document.getElementById('handsImage').style.display = 'block'; // Show hands image
         }
 
         // Initial sound playback
