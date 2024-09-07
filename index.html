@@ -36,10 +36,9 @@
         #message {
             font-size: 18px;
         }
-        #playAudioButton {
-            font-size: 18px;
-            margin-top: 20px;
-            display: none;
+        #audio-controls {
+            margin-top: 10px;
+            display: block;
         }
     </style>
 </head>
@@ -49,40 +48,34 @@
     <button onclick="selectLanguage('ru')">Русский</button>
     <button onclick="selectLanguage('ro')">Română</button>
 
+    <!-- Первый регулятор громкости (для звука анимации) -->
+    <audio id="initialAudio" controls autoplay>
+        <source src="https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает элемент <code>audio</code>.
+    </audio>
+
     <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
-    <audio id="initialAudio" src="https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3"></audio>
-    <button id="playAudioButton" onclick="playInitialAudio()">Нажмите для включения звука</button>
 
     <div id="content" style="display:none;">
         <p id="message"></p>
+
+        <!-- Второй регулятор громкости (для озвученного текста) -->
         <audio id="audio" controls autoplay>
             <source id="audioSource" src="" type="audio/mpeg">
             Ваш браузер не поддерживает элемент <code>audio</code>.
         </audio>
+
         <p><a id="link1" href="#" target="_blank">Объявление на 999.md</a></p>
         <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
-        <img id="handsImage" src="https://github.com/Saricov/math-999/raw/main/hands.png" alt="Картинка с руками">
     </div>
 
     <script>
         var initialAudio = document.getElementById('initialAudio');
-        var playAudioButton = document.getElementById('playAudioButton');
-
-        // Try to play audio automatically
-        initialAudio.play().catch(function() {
-            // If auto-play is blocked, show the button to play audio manually
-            playAudioButton.style.display = 'block';
-        });
-
-        function playInitialAudio() {
-            initialAudio.play();
-            playAudioButton.style.display = 'none'; // Hide the button after audio starts
-        }
 
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
 
-            // Stop and reset the initial sound
+            // Останавливаем и сбрасываем звук анимации
             initialAudio.pause();
             initialAudio.currentTime = 0;
 
@@ -108,6 +101,9 @@
             document.getElementById('content').style.display = 'block';
             document.getElementById('animation').style.display = 'none'; // Скрываем анимацию после выбора языка
         }
+
+        // Автоматическое воспроизведение звука для анимации
+        initialAudio.play();
     </script>
 
 </body>
