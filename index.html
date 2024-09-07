@@ -24,8 +24,8 @@
             cursor: pointer;
             display: inline-block;
         }
-        #animation {
-            width: 100%;
+        #animation, #hands {
+            max-width: 100%;
             height: auto;
             display: block;
             margin-top: 20px;
@@ -39,6 +39,13 @@
         #audio-controls {
             margin-top: 10px;
             display: block;
+        }
+        #volumeControl1, #volumeControl2 {
+            margin-top: 10px;
+            display: block;
+        }
+        #content {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -54,6 +61,7 @@
         Ваш браузер не поддерживает элемент <code>audio</code>.
     </audio>
 
+    <!-- Анимация -->
     <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
 
     <div id="content" style="display:none;">
@@ -67,6 +75,9 @@
 
         <p><a id="link1" href="#" target="_blank">Объявление на 999.md</a></p>
         <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
+
+        <!-- Изображение с руками -->
+        <img id="hands" src="https://github.com/Saricov/math-999/raw/main/hands.png" alt="Картинка с руками">
     </div>
 
     <script>
@@ -78,6 +89,7 @@
             // Останавливаем и сбрасываем звук анимации
             initialAudio.pause();
             initialAudio.currentTime = 0;
+            document.getElementById('initialAudio').style.display = 'none'; // Скрыть первый регулятор громкости
 
             if (lang === 'ru') {
                 message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
