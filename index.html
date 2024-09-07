@@ -10,7 +10,7 @@
             margin-top: 50px;
         }
         h2 {
-            font-size: 30px;
+            font-size: 24px; /* Уменьшение заголовка */
             margin-right: 20px;
             display: inline-block;
             background-color: yellow;
@@ -18,17 +18,17 @@
             border-radius: 5px;
         }
         button {
-            font-size: 26px;
-            padding: 15px 30px;
+            font-size: 22px; /* Уменьшение размера текста на кнопках */
+            padding: 10px 20px; /* Уменьшение кнопок */
             margin: 10px;
             cursor: pointer;
             display: inline-block;
         }
         #animation, #hands {
-            max-width: 100%;
+            max-width: 90%; /* Увеличение размера, но с учетом, чтобы изображения помещались */
             height: auto;
             display: block;
-            margin-top: 20px;
+            margin: 20px auto; /* Центрирование по горизонтали */
         }
         #content p, #content a {
             font-size: 18px;
@@ -47,16 +47,28 @@
         #content {
             margin-top: 20px;
         }
+        /* Настройка для больших экранов */
+        @media (min-width: 1024px) {
+            h2 {
+                font-size: 20px; /* Ещё меньше заголовок на больших экранах */
+            }
+            button {
+                font-size: 20px; /* Ещё меньше текст на кнопках на больших экранах */
+                padding: 8px 16px;
+            }
+        }
     </style>
 </head>
 <body>
 
     <h2>Выберите язык:</h2>
-    <button onclick="selectLanguage('ru')">Русский</button>
-    <button onclick="selectLanguage('ro')">Română</button>
+    <div>
+        <button onclick="selectLanguage('ru')">Русский</button>
+        <button onclick="selectLanguage('ro')">Română</button>
+    </div>
 
     <!-- Первый регулятор громкости (для звука анимации) -->
-    <audio id="initialAudio" controls autoplay>
+    <audio id="initialAudio" controls autoplay style="display:block; margin:10px auto;">
         <source src="https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3" type="audio/mpeg">
         Ваш браузер не поддерживает элемент <code>audio</code>.
     </audio>
