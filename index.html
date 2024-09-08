@@ -9,50 +9,54 @@
             text-align: center;
             font-family: Arial, sans-serif;
             margin-top: 20px;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
         h2 {
-            font-size: 16px;
+            font-size: 18px; /* Увеличил размер заголовка для лучшего отображения */
             background-color: yellow;
             padding: 10px;
-            display: inline-block;
+            display: inline-block; /* Устанавливает фон в соответствии с шириной текста */
             border-radius: 5px;
+            margin-bottom: 20px;
         }
         button {
-            font-size: 14px;
+            font-size: 14px; /* Уменьшил размер текста на кнопках */
             padding: 8px 16px;
             margin: 10px;
             cursor: pointer;
             display: inline-block;
         }
-        #volumeControl {
+        #volumeControl, #volumeControlSecond {
             margin-top: 10px;
         }
-        #animation {
+        #animation, #hands {
             display: block;
             margin: 20px auto;
+            max-width: 100%;
+            height: auto;
         }
         /* Adjustments for different devices */
         @media (min-width: 1024px) {
             /* For desktops and larger screens */
             h2 {
-                margin-top: 0px;
+                margin-top: 10px; /* Приподнял заголовок */
+                font-size: 22px;
             }
             button {
                 font-size: 16px;
             }
             #animation {
-                max-width: 100%;
-                height: calc(100vh - 250px); /* Анимация будет занимать оставшееся пространство экрана */
+                max-width: 90%;
+                height: auto;
+            }
+            #hands {
+                max-width: 90%;
+                height: auto;
             }
         }
         @media (max-width: 767px) {
             /* For smartphones */
             h2 {
-                font-size: 14px;
+                font-size: 16px; /* Уменьшил размер заголовка на смартфонах */
             }
             #animation {
                 width: 100%;
@@ -66,7 +70,7 @@
 </head>
 <body>
 
-    <h2 style="margin-bottom: 20px;">Выберите язык:</h2>
+    <h2>Выберите язык:</h2>
     <button onclick="selectLanguage('ru')">Русский</button>
     <button onclick="selectLanguage('ro')">Română</button>
 
@@ -81,10 +85,12 @@
 
     <div id="content" style="display:none;">
         <p id="message"></p>
-        <audio id="languageAudio" controls autoplay>
-            <source id="audioSource" src="" type="audio/mpeg">
-            Ваш браузер не поддерживает элемент <code>audio</code>.
-        </audio>
+        <div id="volumeControlSecond">
+            <audio id="languageAudio" controls autoplay>
+                <source id="audioSource" src="" type="audio/mpeg">
+                Ваш браузер не поддерживает элемент <code>audio</code>.
+            </audio>
+        </div>
         <p><a id="link1" href="#" target="_blank">Объявление на 999.md</a></p>
         <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
         <img id="hands" src="https://github.com/Saricov/math-999/raw/main/hands.png" alt="Картинка с руками">
