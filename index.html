@@ -3,105 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <title>Выбор языка</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            margin-top: 50px;
+            margin-top: 20px;
         }
         h2 {
-            font-size: 24px; /* Уменьшение заголовка */
-            margin-right: 20px;
-            display: inline-block;
+            font-size: 28px;
             background-color: yellow;
             padding: 10px;
             border-radius: 5px;
         }
         button {
-            font-size: 22px; /* Уменьшение размера текста на кнопках */
-            padding: 10px 20px; /* Уменьшение кнопок */
+            font-size: 20px;
+            padding: 10px 20px;
             margin: 10px;
             cursor: pointer;
             display: inline-block;
         }
+        #volumeControl {
+            margin-top: 10px;
+        }
         #animation, #hands {
-            max-width: 90%; /* Увеличение размера, но с учетом, чтобы изображения помещались */
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
             height: auto;
-            display: block;
-            margin: 20px auto; /* Центрирование по горизонтали */
         }
-        #content p, #content a {
-            font-size: 18px;
-        }
-        #message {
-            font-size: 18px;
-        }
-        #audio-controls {
-            margin-top: 10px;
-            display: block;
-        }
-        #volumeControl1, #volumeControl2 {
-            margin-top: 10px;
-            display: block;
-        }
-        #content {
-            margin-top: 20px;
-        }
-        /* Настройка для больших экранов */
+        /* Adjustments for different devices */
         @media (min-width: 1024px) {
+            /* For desktops and larger screens */
             h2 {
-                font-size: 20px; /* Ещё меньше заголовок на больших экранах */
+                margin-top: 0px;
             }
             button {
-                font-size: 20px; /* Ещё меньше текст на кнопках на больших экранах */
-                padding: 8px 16px;
+                font-size: 22px;
+            }
+        }
+        @media (max-width: 767px) {
+            /* For smartphones */
+            h2 {
+                font-size: 24px;
+            }
+            #animation {
+                width: 90%;
+                height: auto;
+            }
+            button {
+                font-size: 18px;
             }
         }
     </style>
 </head>
 <body>
 
-    <h2>Выберите язык:</h2>
-    <div>
-        <button onclick="selectLanguage('ru')">Русский</button>
-        <button onclick="selectLanguage('ro')">Română</button>
+    <h2 style="margin-bottom: 20px;">Выберите язык:</h2>
+    <button onclick="selectLanguage('ru')">Русский</button>
+    <button onclick="selectLanguage('ro')">Română</button>
+
+    <div id="volumeControl">
+        <audio id="initialAudio" controls autoplay>
+            <source src="https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3" type="audio/mpeg">
+            Ваш браузер не поддерживает элемент <code>audio</code>.
+        </audio>
     </div>
 
-    <!-- Первый регулятор громкости (для звука анимации) -->
-    <audio id="initialAudio" controls autoplay style="display:block; margin:10px auto;">
-        <source src="https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3" type="audio/mpeg">
-        Ваш браузер не поддерживает элемент <code>audio</code>.
-    </audio>
-
-    <!-- Анимация -->
     <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация">
 
     <div id="content" style="display:none;">
         <p id="message"></p>
-
-        <!-- Второй регулятор громкости (для озвученного текста) -->
-        <audio id="audio" controls autoplay>
+        <audio id="languageAudio" controls>
             <source id="audioSource" src="" type="audio/mpeg">
             Ваш браузер не поддерживает элемент <code>audio</code>.
         </audio>
-
         <p><a id="link1" href="#" target="_blank">Объявление на 999.md</a></p>
         <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
-
-        <!-- Изображение с руками -->
         <img id="hands" src="https://github.com/Saricov/math-999/raw/main/hands.png" alt="Картинка с руками">
     </div>
 
     <script>
         var initialAudio = document.getElementById('initialAudio');
+        var languageAudio = document.getElementById('languageAudio');
 
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
 
-            // Останавливаем и сбрасываем звук анимации
             initialAudio.pause();
-            initialAudio.currentTime = 0;
-            document.getElementById('initialAudio').style.display = 'none'; // Скрыть первый регулятор громкости
+            document.getElementById('volumeControl').style.display = 'none'; // Hide the first volume control
 
             if (lang === 'ru') {
                 message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
@@ -116,18 +106,13 @@
 
             document.getElementById('message').textContent = message;
             document.getElementById('audioSource').src = audioSrc;
-            document.getElementById('audio').load();
+            languageAudio.load();
             document.getElementById('link1').href = link1;
-            document.getElementById('link1').textContent = "Объявление на 999.md";
             document.getElementById('link2').href = link2;
-            document.getElementById('link2').textContent = "Объявление на Makler.md";
 
-            document.getElementById('content').style.display = 'block';
-            document.getElementById('animation').style.display = 'none'; // Скрываем анимацию после выбора языка
+            document.getElementById('content').style.display = 'block'; // Show the content after selecting language
+            document.getElementById('animation').style.display = 'none'; // Hide the animation after selecting language
         }
-
-        // Автоматическое воспроизведение звука для анимации
-        initialAudio.play();
     </script>
 
 </body>
