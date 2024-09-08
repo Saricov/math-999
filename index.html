@@ -9,12 +9,16 @@
             text-align: center;
             font-family: Arial, sans-serif;
             margin-top: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         h2 {
             font-size: 16px;
             background-color: yellow;
             padding: 10px;
-            display: inline-block; /* Устанавливает фон в соответствии с шириной текста */
+            display: inline-block;
             border-radius: 5px;
         }
         button {
@@ -27,11 +31,9 @@
         #volumeControl {
             margin-top: 10px;
         }
-        #animation, #hands {
+        #animation {
             display: block;
             margin: 20px auto;
-            max-width: 100%;
-            height: auto;
         }
         /* Adjustments for different devices */
         @media (min-width: 1024px) {
@@ -42,6 +44,10 @@
             button {
                 font-size: 16px;
             }
+            #animation {
+                max-width: 100%;
+                height: calc(100vh - 250px); /* Анимация будет занимать оставшееся пространство экрана */
+            }
         }
         @media (max-width: 767px) {
             /* For smartphones */
@@ -49,7 +55,7 @@
                 font-size: 14px;
             }
             #animation {
-                width: 90%;
+                width: 100%;
                 height: auto;
             }
             button {
