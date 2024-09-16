@@ -39,6 +39,10 @@
         #handsImage {
             display: none; /* Initially hidden */
         }
+        /* Скроем аудио элемент по умолчанию */
+        #audio {
+            display: none;
+        }
     </style>
 </head>
 <body>
@@ -68,7 +72,7 @@
     </div>
 
     <!-- Управление аудиофайлом call_SI.mp3 -->
-    <div style="margin-top: 20px;">
+    <div id="initialAudioContainer" style="margin-top: 20px;">
         <audio id="initialAudio" controls autoplay>
             <source src="https://github.com/Saricov/math-999/raw/main/call_SI.mp3" type="audio/mpeg">
             Ваш браузер не поддерживает элемент <code>audio</code>.
@@ -81,6 +85,8 @@
         
         // Новый начальный звук с регулятором громкости
         var initialAudioElement = document.getElementById('initialAudio');
+        var initialAudioContainer = document.getElementById('initialAudioContainer');
+        var audioElement = document.getElementById('audio');
 
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
@@ -88,6 +94,12 @@
             // Останавливаем и сбрасываем начальный звук
             initialAudioElement.pause();
             initialAudioElement.currentTime = 0;
+
+            // Скрываем регулятор громкости для начального звука
+            initialAudioContainer.style.display = 'none';
+
+            // Показываем аудио плеер для озвучки текста
+            audioElement.style.display = 'block';
 
             if (lang === 'ru') {
                 message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
