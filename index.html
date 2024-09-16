@@ -67,20 +67,27 @@
         <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
     </div>
 
+    <!-- Управление аудиофайлом call_SI.mp3 -->
+    <div style="margin-top: 20px;">
+        <audio id="initialAudio" controls autoplay>
+            <source src="https://github.com/Saricov/math-999/raw/main/call_SI.mp3" type="audio/mpeg">
+            Ваш браузер не поддерживает элемент <code>audio</code>.
+        </audio>
+    </div>
+
     <script>
         // Комментарий: оригинальный начальный звук
         // var initialAudio = new Audio('https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3');
         
-        // Новый начальный звук с уменьшенной громкостью
-        var initialAudio = new Audio('https://github.com/Saricov/math-999/raw/main/call_SI.mp3');
-        initialAudio.volume = 0.3; // Уменьшаем громкость начального аудиофайла
+        // Новый начальный звук с регулятором громкости
+        var initialAudioElement = document.getElementById('initialAudio');
 
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
 
             // Останавливаем и сбрасываем начальный звук
-            initialAudio.pause();
-            initialAudio.currentTime = 0;
+            initialAudioElement.pause();
+            initialAudioElement.currentTime = 0;
 
             if (lang === 'ru') {
                 message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
@@ -112,7 +119,7 @@
         videoElement.volume = 1.0; // Устанавливаем громкость видео на максимум
 
         // Начальное воспроизведение звука
-        initialAudio.play();
+        initialAudioElement.play();
     </script>
 
 </body>
