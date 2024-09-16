@@ -50,8 +50,8 @@
     <!-- Комментарий: оригинальный запуск GIF-анимации -->
     <!-- <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация"> -->
 
-    <!-- Добавляем видео -->
-    <video id="video" controls>
+    <!-- Видео запускается автоматически с увеличенной громкостью -->
+    <video id="video" controls autoplay>
         <source src="https://github.com/Saricov/math-999/raw/main/call_SI.mp4" type="video/mp4">
         Ваш браузер не поддерживает элемент <code>video</code>.
     </video>
@@ -71,8 +71,9 @@
         // Комментарий: оригинальный начальный звук
         // var initialAudio = new Audio('https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3');
         
-        // Новый начальный звук
+        // Новый начальный звук с уменьшенной громкостью
         var initialAudio = new Audio('https://github.com/Saricov/math-999/raw/main/call_SI.mp3');
+        initialAudio.volume = 0.3; // Уменьшаем громкость начального аудиофайла
 
         function selectLanguage(lang) {
             var message, audioSrc, link1, link2;
@@ -105,6 +106,10 @@
             document.getElementById('video').style.display = 'none'; // Скрываем видео после выбора языка
             document.getElementById('handsImage').style.display = 'block'; // Показываем картинку с руками
         }
+
+        // Автоматическое воспроизведение видео с увеличенной громкостью
+        var videoElement = document.getElementById('video');
+        videoElement.volume = 1.0; // Устанавливаем громкость видео на максимум
 
         // Начальное воспроизведение звука
         initialAudio.play();
