@@ -24,31 +24,23 @@
             cursor: pointer;
             display: inline-block;
         }
-        #animation, #handsImage, #video {
-            width: 100%;
+        #video {
+            width: 70%; /* Уменьшение размера видео */
             height: auto;
             display: block;
-            margin-top: 20px;
+            margin: 20px auto;
         }
         #content p, #content a {
             font-size: 18px;
+        }
+        #content {
+            margin-top: 20px;
         }
         #message {
             font-size: 18px;
         }
         #handsImage {
             display: none; /* Initially hidden */
-        }
-        /* Скроем аудио элемент по умолчанию */
-        #audio {
-            display: none;
-        }
-
-        /* Центрирование регулятора громкости для аудиоозвучки текста */
-        #audio {
-            display: block;
-            margin: 20px auto;  /* Центрирование */
-            width: 300px;        /* Ограничение ширины для аккуратного вида */
         }
     </style>
 </head>
@@ -58,17 +50,13 @@
     <button onclick="selectLanguage('ru')">Русский</button>
     <button onclick="selectLanguage('ro')">Română</button>
 
-    <!-- Комментарий: оригинальный запуск GIF-анимации -->
-    <!-- <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация"> -->
-
-    <!-- Видео запускается автоматически с увеличенной громкостью -->
+    <!-- Видео запускается автоматически -->
     <video id="video" controls autoplay>
         <source src="https://github.com/Saricov/math-999/raw/main/call_SI-1.mp4" type="video/mp4">
         Ваш браузер не поддерживает элемент <code>video</code>.
     </video>
 
     <div id="content" style="display:none;">
-        <img id="handsImage" src="https://github.com/Saricov/math-999/raw/main/hands.png" alt="Картинка с руками">
         <p id="message"></p>
         <audio id="audio" controls autoplay>
             <source id="audioSource" src="" type="audio/mpeg">
@@ -78,38 +66,13 @@
         <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
     </div>
 
-    <!-- Управление аудиофайлом call_SI.mp3 -->
-    <div id="initialAudioContainer" style="margin-top: 20px;">
-        <audio id="initialAudio" controls autoplay>
-            <source src="https://github.com/Saricov/math-999/raw/main/call_SI.mp3" type="audio/mpeg">
-            Ваш браузер не поддерживает элемент <code>audio</code>.
-        </audio>
-    </div>
-
     <script>
-        // Комментарий: оригинальный начальный звук
-        // var initialAudio = new Audio('https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3');
-        
-        // Новый начальный звук с регулятором громкости
-        var initialAudioElement = document.getElementById('initialAudio');
-        var initialAudioContainer = document.getElementById('initialAudioContainer');
-        var audioElement = document.getElementById('audio');
-
         function selectLanguage(lang) {
-            // Останавливаем и сбрасываем начальный звук
-            initialAudioElement.pause();
-            initialAudioElement.currentTime = 0;
-
-            // Скрываем регулятор громкости для начального звука
-            initialAudioContainer.style.display = 'none';
-
+            var videoElement = document.getElementById('video');
             if (lang === 'ru') {
-                // Запускаем видео SI_Ru.mp4 для русского языка
-                var videoElement = document.getElementById('video');
                 videoElement.innerHTML = '<source src="https://github.com/Saricov/math-999/raw/main/SI_Ru.mp4" type="video/mp4">';
                 videoElement.load();  // Перезагружаем видео
-                videoElement.style.display = 'block';  // Показываем видео
-                document.getElementById('content').style.display = 'none'; // Скрываем остальной контент
+                document.getElementById('content').style.display = 'block'; // Показываем контент
             } else if (lang === 'ro') {
                 var message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
                 var audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3";
@@ -120,22 +83,16 @@
                 document.getElementById('audioSource').src = audioSrc;
                 document.getElementById('audio').load();
                 document.getElementById('link1').href = link1;
-                document.getElementById('link1').textContent = "Объявление на 999.md";
                 document.getElementById('link2').href = link2;
-                document.getElementById('link2').textContent = "Объявление на Makler.md";
 
                 document.getElementById('content').style.display = 'block';
-                document.getElementById('video').style.display = 'none'; // Скрываем видео после выбора языка
-                document.getElementById('handsImage').style.display = 'block'; // Показываем картинку с руками
+                videoElement.style.display = 'none'; // Скрываем видео после выбора языка
             }
         }
 
-        // Автоматическое воспроизведение видео с увеличенной громкостью
+        // Автоматическое воспроизведение видео
         var videoElement = document.getElementById('video');
         videoElement.volume = 1.0; // Устанавливаем громкость видео на максимум
-
-        // Начальное воспроизведение звука
-        initialAudioElement.play();
     </script>
 
 </body>
