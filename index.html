@@ -58,6 +58,10 @@
     <button onclick="selectLanguage('ru')">Русский</button>
     <button onclick="selectLanguage('ro')">Română</button>
 
+    <!-- Комментарий: оригинальный запуск GIF-анимации -->
+    <!-- <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация"> -->
+
+    <!-- Видео запускается автоматически с увеличенной громкостью -->
     <video id="video" controls autoplay>
         <source src="https://github.com/Saricov/math-999/raw/main/call_SI-1.mp4" type="video/mp4">
         Ваш браузер не поддерживает элемент <code>video</code>.
@@ -74,6 +78,7 @@
         <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
     </div>
 
+    <!-- Управление аудиофайлом call_SI.mp3 -->
     <div id="initialAudioContainer" style="margin-top: 20px;">
         <audio id="initialAudio" controls autoplay>
             <source src="https://github.com/Saricov/math-999/raw/main/call_SI.mp3" type="audio/mpeg">
@@ -82,45 +87,57 @@
     </div>
 
     <script>
+        // Комментарий: оригинальный начальный звук
+        // var initialAudio = new Audio('https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3');
+        
+        // Новый начальный звук с регулятором громкости
         var initialAudioElement = document.getElementById('initialAudio');
         var initialAudioContainer = document.getElementById('initialAudioContainer');
         var audioElement = document.getElementById('audio');
 
         function selectLanguage(lang) {
+            var message, audioSrc, link1, link2;
+
+            // Останавливаем и сбрасываем начальный звук
             initialAudioElement.pause();
             initialAudioElement.currentTime = 0;
+
+            // Скрываем регулятор громкости для начального звука
             initialAudioContainer.style.display = 'none';
 
+            // Показываем аудио плеер для озвучки текста
+            audioElement.style.display = 'block';
+
             if (lang === 'ru') {
-                var videoElement = document.getElementById('video');
-                videoElement.innerHTML = '<source src="https://github.com/Saricov/math-999/raw/main/SI_Ru.mp4" type="video/mp4">';
-                videoElement.load(); 
-                videoElement.style.display = 'block';  
-                document.getElementById('content').style.display = 'block'; // Показываем остальной контент
-                document.getElementById('handsImage').style.display = 'block'; // Показываем картинку с руками
+                message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
+                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rus2.mp3";
+                link1 = "https://999.md/ru/88168207";
+                link2 = "https://makler.md/ru/job/education/an/61028";
             } else if (lang === 'ro') {
-                var message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
-                var audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3";
-                var link1 = "https://999.md/ro/88168207";
-                var link2 = "https://makler.md/ro/job/education/an/61028";
-
-                document.getElementById('message').textContent = message;
-                document.getElementById('audioSource').src = audioSrc;
-                document.getElementById('audio').load();
-                document.getElementById('link1').href = link1;
-                document.getElementById('link1').textContent = "Объявление на 999.md";
-                document.getElementById('link2').href = link2;
-                document.getElementById('link2').textContent = "Объявление на Makler.md";
-
-                document.getElementById('content').style.display = 'block';
-                document.getElementById('video').style.display = 'none'; 
-                document.getElementById('handsImage').style.display = 'block'; 
+                message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
+                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3";
+                link1 = "https://999.md/ro/88168207";
+                link2 = "https://makler.md/ro/job/education/an/61028";
             }
+
+            document.getElementById('message').textContent = message;
+            document.getElementById('audioSource').src = audioSrc;
+            document.getElementById('audio').load();
+            document.getElementById('link1').href = link1;
+            document.getElementById('link1').textContent = "Объявление на 999.md";
+            document.getElementById('link2').href = link2;
+            document.getElementById('link2').textContent = "Объявление на Makler.md";
+
+            document.getElementById('content').style.display = 'block';
+            document.getElementById('video').style.display = 'none'; // Скрываем видео после выбора языка
+            document.getElementById('handsImage').style.display = 'block'; // Показываем картинку с руками
         }
 
+        // Автоматическое воспроизведение видео с увеличенной громкостью
         var videoElement = document.getElementById('video');
-        videoElement.volume = 1.0;
+        videoElement.volume = 1.0; // Устанавливаем громкость видео на максимум
 
+        // Начальное воспроизведение звука
         initialAudioElement.play();
     </script>
 
