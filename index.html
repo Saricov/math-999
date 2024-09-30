@@ -55,26 +55,26 @@
 
     <!-- Элемент для отображения второго и третьего видео -->
     <div id="secondContent" style="display: none;">
-        <!-- Второе видео -->
+        <!-- Второе видео (портрет) -->
         <video id="secondVideo" controls>
-            <source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_RU.mp4" type="video/mp4">
+            <source src="https://github.com/Saricov/math-999/raw/main/wm_portret1.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
     </div>
 
     <div id="thirdContent" style="display: none;">
-        <!-- Третье видео (заменяет второе) -->
+        <!-- Третье видео -->
         <video id="thirdVideo" controls>
-            <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
+            <source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_RU.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
 
         <!-- Надпись "Надо звонить Сергею Ивановичу!" -->
         <div class="red-text">Надо звонить Сергею Ивановичу!</div>
 
-        <!-- Номер телефона с цветными цифрами -->
+        <!-- Номер телефона с цветными цифрами и без пробелов -->
         <div class="phone-number">
-            (<span class="blue">+373</span>)0 <span class="red">68</span> 1 <span class="blue">535</span> <span class="red">68</span>
+            (<span class="blue">+373</span>)0<span class="red">68</span>1<span class="blue">535</span><span class="red">68</span>
         </div>
 
         <!-- Ссылки на объявления -->
@@ -84,10 +84,20 @@
         </div>
     </div>
 
+    <div id="fourthContent" style="display: none;">
+        <!-- Четвертое видео (музыка) -->
+        <video id="fourthVideo" controls>
+            <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
+            Ваш браузер не поддерживает элемент <code>video</code>.
+        </video>
+    </div>
+
     <script>
         // Ожидание завершения первого видео
         var firstVideo = document.getElementById('firstVideo');
         var secondContent = document.getElementById('secondContent');
+        var thirdContent = document.getElementById('thirdContent');
+        var fourthContent = document.getElementById('fourthContent');
         var initialAudio = document.getElementById('initialAudio');
 
         // Воспроизведение MP3 при загрузке страницы
@@ -104,7 +114,7 @@
             // Показать второе видео
             secondContent.style.display = 'block';
 
-            // Автоматический запуск второго видео
+            // Автоматический запуск второго видео (портрет)
             var secondVideo = document.getElementById('secondVideo');
             secondVideo.volume = 1.0; // Устанавливаем максимальную громкость для второго видео
             secondVideo.play();
@@ -115,12 +125,24 @@
                 secondContent.style.display = 'none';
 
                 // Показать третье видео и текст
-                var thirdContent = document.getElementById('thirdContent');
                 thirdContent.style.display = 'block';
 
                 var thirdVideo = document.getElementById('thirdVideo');
                 thirdVideo.volume = 1.0; // Устанавливаем громкость третьего видео
                 thirdVideo.play(); // Автоматический запуск третьего видео
+
+                // Ожидание завершения третьего видео для замены его на четвертое
+                thirdVideo.onended = function() {
+                    // Скрыть третье видео
+                    thirdContent.style.display = 'none';
+
+                    // Показать четвертое видео
+                    fourthContent.style.display = 'block';
+
+                    var fourthVideo = document.getElementById('fourthVideo');
+                    fourthVideo.volume = 1.0; // Устанавливаем громкость четвертого видео
+                    fourthVideo.play(); // Автоматический запуск четвертого видео
+                };
             };
         };
     </script>
