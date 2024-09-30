@@ -53,7 +53,7 @@
         Ваш браузер не поддерживает элемент <code>video</code>.
     </video>
 
-    <!-- Элемент для отображения второго и третьего видео -->
+    <!-- Элемент для отображения второго, третьего и четвёртого видео -->
     <div id="secondContent" style="display: none;">
         <!-- Второе видео (портрет) -->
         <video id="secondVideo" controls>
@@ -142,6 +142,11 @@
                     var fourthVideo = document.getElementById('fourthVideo');
                     fourthVideo.volume = 1.2; // Устанавливаем громкость четвертого видео (увеличена немного)
                     fourthVideo.play(); // Автоматический запуск четвертого видео
+
+                    // Показать надпись и номер телефона с ссылками после запуска четвёртого видео
+                    fourthVideo.onended = function() {
+                        fourthContent.style.display = 'block';
+                    };
                 };
             };
         };
