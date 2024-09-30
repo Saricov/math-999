@@ -68,6 +68,14 @@
             <source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_RU.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
+    </div>
+
+    <div id="fourthContent" style="display: none;">
+        <!-- Четвертое видео (музыка) -->
+        <video id="fourthVideo" controls>
+            <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
+            Ваш браузер не поддерживает элемент <code>video</code>.
+        </video>
 
         <!-- Надпись "Надо звонить Сергею Ивановичу!" -->
         <div class="red-text">Надо звонить Сергею Ивановичу!</div>
@@ -82,14 +90,6 @@
             <p><a href="https://999.md/ro/88361202" target="_blank">Моё объявление на 999.md</a></p>
             <p><a href="https://makler.md/ru/job/education/an/61028" target="_blank">Моё объявление на Makler.md</a></p>
         </div>
-    </div>
-
-    <div id="fourthContent" style="display: none;">
-        <!-- Четвертое видео (музыка) -->
-        <video id="fourthVideo" controls>
-            <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
-            Ваш браузер не поддерживает элемент <code>video</code>.
-        </video>
     </div>
 
     <script>
@@ -116,7 +116,7 @@
 
             // Автоматический запуск второго видео (портрет)
             var secondVideo = document.getElementById('secondVideo');
-            secondVideo.volume = 1.0; // Устанавливаем максимальную громкость для второго видео
+            secondVideo.volume = 0.67; // Устанавливаем громкость второго видео (уменьшена на одну треть)
             secondVideo.play();
 
             // Ожидание завершения второго видео для замены его на третье
@@ -124,11 +124,11 @@
                 // Скрыть второе видео
                 secondContent.style.display = 'none';
 
-                // Показать третье видео и текст
+                // Показать третье видео
                 thirdContent.style.display = 'block';
 
                 var thirdVideo = document.getElementById('thirdVideo');
-                thirdVideo.volume = 1.0; // Устанавливаем громкость третьего видео
+                thirdVideo.volume = 1.33; // Устанавливаем громкость третьего видео (увеличена на одну треть)
                 thirdVideo.play(); // Автоматический запуск третьего видео
 
                 // Ожидание завершения третьего видео для замены его на четвертое
@@ -140,7 +140,7 @@
                     fourthContent.style.display = 'block';
 
                     var fourthVideo = document.getElementById('fourthVideo');
-                    fourthVideo.volume = 1.0; // Устанавливаем громкость четвертого видео
+                    fourthVideo.volume = 1.2; // Устанавливаем громкость четвертого видео (увеличена немного)
                     fourthVideo.play(); // Автоматический запуск четвертого видео
                 };
             };
