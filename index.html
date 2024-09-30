@@ -88,7 +88,7 @@
 
         <!-- Номер телефона с цветными цифрами и без пробелов -->
         <div class="phone-number">
-            <span class="black">(+373)0</span><span class="green">1</span><span class="red">68</span>5<span class="blue">35</span><span class="red">68</span>
+            (<span class="black">+373</span>)<span class="red">0</span><span class="red">68</span><span class="green">1</span><span class="red">68</span><span class="blue">535</span>
         </div>
 
         <!-- Ссылки на объявления -->
@@ -122,7 +122,7 @@
 
             // Устанавливаем пониженную громкость для второго видео
             var secondVideo = document.getElementById('secondVideo');
-            secondVideo.volume = 0.25; // Пониженная громкость
+            secondVideo.volume = 0.25; // Установлена громкость второго видео на 0.25
             secondVideo.play();
 
             // Ожидание завершения второго видео для замены его на третье
@@ -134,7 +134,7 @@
                 thirdContent.style.display = 'block';
 
                 var thirdVideo = document.getElementById('thirdVideo');
-                thirdVideo.volume = 2.0; // Устанавливаем громкость третьего видео на максимум
+                thirdVideo.volume = 1.0; // Устанавливаем громкость третьего видео на максимум
                 thirdVideo.play(); // Автоматический запуск третьего видео
 
                 // Ожидание завершения третьего видео для замены его на четвертое
