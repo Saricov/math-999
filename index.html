@@ -23,6 +23,15 @@
             text-decoration: none;
             color: blue;
         }
+        .red-text {
+            color: red;
+            font-size: 50px; /* Размер текста "Надо звонить Сергею Ивановичу!" */
+            margin: 20px 0;
+        }
+        .phone-number {
+            font-size: 40px;
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -39,15 +48,32 @@
         Ваш браузер не поддерживает элемент <code>video</code>.
     </video>
 
-    <!-- Элемент для отображения второго видео и ссылок -->
+    <!-- Элемент для отображения второго видео, третьего видео и ссылок -->
     <div id="secondContent" style="display: none;">
+        <!-- Второе видео -->
         <video id="secondVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_RU.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
-        <div id="links">
-            <p><a href="https://999.md/ro/88361202" target="_blank">Моё объявление на 999.md</a></p>
-            <p><a href="https://makler.md/ru/job/education/an/61028" target="_blank">Моё объявление на Makler.md</a></p>
+
+        <!-- Третье видео -->
+        <div id="thirdContent" style="display: none;">
+            <video id="thirdVideo" controls>
+                <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
+                Ваш браузер не поддерживает элемент <code>video</code>.
+            </video>
+
+            <!-- Надпись "Надо звонить Сергею Ивановичу!" -->
+            <div class="red-text">Надо звонить Сергею Ивановичу!</div>
+
+            <!-- Номер телефона -->
+            <div class="phone-number">(+373)0 68 1 535 68</div>
+
+            <!-- Ссылки на объявления -->
+            <div id="links">
+                <p><a href="https://999.md/ro/88361202" target="_blank">Моё объявление на 999.md</a></p>
+                <p><a href="https://makler.md/ru/job/education/an/61028" target="_blank">Моё объявление на Makler.md</a></p>
+            </div>
         </div>
     </div>
 
@@ -68,13 +94,23 @@
             // Скрыть первое видео
             firstVideo.style.display = 'none';
 
-            // Показать второе видео и ссылки
+            // Показать второе видео
             secondContent.style.display = 'block';
 
             // Автоматический запуск второго видео
             var secondVideo = document.getElementById('secondVideo');
             secondVideo.volume = 1.0; // Устанавливаем максимальную громкость для второго видео
             secondVideo.play();
+
+            // Ожидание завершения второго видео для запуска третьего
+            secondVideo.onended = function() {
+                var thirdContent = document.getElementById('thirdContent');
+                thirdContent.style.display = 'block'; // Показать третий блок
+
+                var thirdVideo = document.getElementById('thirdVideo');
+                thirdVideo.volume = 1.0; // Устанавливаем громкость третьего видео
+                thirdVideo.play(); // Автоматический запуск третьего видео
+            };
         };
     </script>
 
