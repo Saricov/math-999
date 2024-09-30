@@ -2,92 +2,154 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Автоматическое воспроизведение видео</title>
+    <title>Видео с объявлениями</title>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
             margin-top: 50px;
         }
-        h2 {
-            font-size: 30px;
-            margin-right: 20px;
-            display: inline-block;
-            background-color: yellow;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        #video {
+        video {
             width: 100%;
             height: auto;
             display: block;
+            margin: 20px 0;
+        }
+        #links {
+            font-size: 40px; /* Увеличен размер текста ссылок */
             margin-top: 20px;
         }
-        #message, #phoneNumber {
-            font-size: 24px;
+        #links a {
+            text-decoration: none;
+            color: blue;
+        }
+        .red-text {
+            color: red;
+            font-size: 50px; /* Размер текста "Надо звонить Сергею Ивановичу!" */
+            margin: 20px 0;
+        }
+        .phone-number {
+            font-size: 40px;
+        }
+        .red {
             color: red;
         }
-        #phoneNumber span {
-            color: blue; /* Цвет для цифр "535" */
-        }
-        #links a {
-            font-size: 36px; /* Увеличенный размер ссылок */
-            display: block;
-            margin-top: 10px;
+        .blue {
+            color: blue;
         }
     </style>
 </head>
 <body>
 
-    <h2>Автоматическое воспроизведение видео</h2>
-    <video id="video" autoplay></video>
+    <!-- Аудио для воспроизведения при запуске -->
+    <audio id="initialAudio" autoplay>
+        <source src="https://github.com/Saricov/math-999/raw/main/bettercall.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает элемент <code>audio</code>.
+    </audio>
 
-    <div id="message" style="display:none;">Надо звонить Сергею Ивановичу!</div>
-    <div id="phoneNumber" style="display:none;">
-        (+373)0 <span style="color:red;">68</span> <span style="color:blue;">535</span> <span style="color:red;">68</span>
+    <!-- Первое видео с автоматически запускающимся аудио -->
+    <video id="firstVideo" controls autoplay>
+        <source src="https://github.com/Saricov/math-999/raw/main/call_SI-7.mp4" type="video/mp4">
+        Ваш браузер не поддерживает элемент <code>video</code>.
+    </video>
+
+    <!-- Элемент для отображения второго и третьего видео -->
+    <div id="secondContent" style="display: none;">
+        <!-- Второе видео (портрет) -->
+        <video id="secondVideo" controls>
+            <source src="https://github.com/Saricov/math-999/raw/main/wm_portret_1.mp4" type="video/mp4">
+            Ваш браузер не поддерживает элемент <code>video</code>.
+        </video>
     </div>
-    <div id="links" style="display:none;">
-        <a href="https://999.md/ro/88361202" target="_blank">Моё объявление на 999.md</a>
-        <a href="https://makler.md/ro/job/education/an/61028" target="_blank">Моё объявление на makler.md</a>
+
+    <div id="thirdContent" style="display: none;">
+        <!-- Третье видео -->
+        <video id="thirdVideo" controls>
+            <source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_RU.mp4" type="video/mp4">
+            Ваш браузер не поддерживает элемент <code>video</code>.
+        </video>
+
+        <!-- Надпись "Надо звонить Сергею Ивановичу!" -->
+        <div class="red-text">Надо звонить Сергею Ивановичу!</div>
+
+        <!-- Номер телефона с цветными цифрами и без пробелов -->
+        <div class="phone-number">
+            (<span class="blue">+373</span>)0<span class="red">68</span>1<span class="blue">535</span><span class="red">68</span>
+        </div>
+
+        <!-- Ссылки на объявления -->
+        <div id="links" style="display: none;">
+            <p><a href="https://999.md/ro/88361202" target="_blank">Моё объявление на 999.md</a></p>
+            <p><a href="https://makler.md/ru/job/education/an/61028" target="_blank">Моё объявление на Makler.md</a></p>
+        </div>
+    </div>
+
+    <div id="fourthContent" style="display: none;">
+        <!-- Четвертое видео (музыка) -->
+        <video id="fourthVideo" controls>
+            <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
+            Ваш браузер не поддерживает элемент <code>video</code>.
+        </video>
     </div>
 
     <script>
-        const videoElement = document.getElementById('video');
-        const messageElement = document.getElementById('message');
-        const phoneNumberElement = document.getElementById('phoneNumber');
-        const linksElement = document.getElementById('links');
+        // Ожидание завершения первого видео
+        var firstVideo = document.getElementById('firstVideo');
+        var secondContent = document.getElementById('secondContent');
+        var thirdContent = document.getElementById('thirdContent');
+        var fourthContent = document.getElementById('fourthContent');
+        var initialAudio = document.getElementById('initialAudio');
 
-        const videos = [
-            { src: 'https://github.com/Saricov/math-999/raw/main/call_SI-7.mp4', volume: 1.0 },  // Первое видео
-            { src: 'https://github.com/Saricov/math-999/raw/main/wm_portret_1.mp4', volume: 0.67 },  // Второе видео
-            { src: 'https://github.com/Saricov/math-999/raw/main/DrFa_SI_Ru.mp4', volume: 1.0 },  // Третье видео
-            { src: 'https://github.com/Saricov/math-999/raw/main/SI_melody.mp4', volume: 1.0 }  // Четвёртое видео
-        ];
+        // Воспроизведение MP3 при загрузке страницы
+        initialAudio.play();
 
-        let currentVideoIndex = 0;
+        firstVideo.onended = function() {
+            // Остановка аудио, когда первое видео заканчивается
+            initialAudio.pause();
+            initialAudio.currentTime = 0;
 
-        function playNextVideo() {
-            if (currentVideoIndex < videos.length) {
-                videoElement.src = videos[currentVideoIndex].src;
-                videoElement.volume = videos[currentVideoIndex].volume;
-                videoElement.play();
+            // Скрыть первое видео
+            firstVideo.style.display = 'none';
 
-                currentVideoIndex++;
+            // Показать второе видео
+            secondContent.style.display = 'block';
 
-                videoElement.onended = function() {
-                    if (currentVideoIndex < videos.length) {
-                        playNextVideo();
-                    } else {
-                        // Показать сообщение, номер телефона и ссылки после последнего видео
-                        messageElement.style.display = 'block';
-                        phoneNumberElement.style.display = 'block';
-                        linksElement.style.display = 'block';
-                    }
+            // Автоматический запуск второго видео (портрет)
+            var secondVideo = document.getElementById('secondVideo');
+            secondVideo.volume = 1.0; // Устанавливаем громкость второго видео
+            secondVideo.play();
+
+            // Ожидание завершения второго видео для замены его на третье
+            secondVideo.onended = function() {
+                // Скрыть второе видео
+                secondContent.style.display = 'none';
+
+                // Показать третье видео и текст
+                thirdContent.style.display = 'block';
+
+                var thirdVideo = document.getElementById('thirdVideo');
+                thirdVideo.volume = 0.67; // Устанавливаем громкость третьего видео
+                thirdVideo.play(); // Автоматический запуск третьего видео
+
+                // Ожидание завершения третьего видео для замены его на четвертое
+                thirdVideo.onended = function() {
+                    // Скрыть третье видео
+                    thirdContent.style.display = 'none';
+
+                    // Показать четвертое видео
+                    fourthContent.style.display = 'block';
+
+                    var fourthVideo = document.getElementById('fourthVideo');
+                    fourthVideo.volume = 1.0; // Устанавливаем громкость четвертого видео
+                    fourthVideo.play(); // Автоматический запуск четвертого видео
+
+                    // Показать ссылки после четвертого видео
+                    fourthVideo.onended = function() {
+                        document.getElementById('links').style.display = 'block';
+                    };
                 };
-            }
-        }
-
-        playNextVideo();
+            };
+        };
     </script>
 
 </body>
