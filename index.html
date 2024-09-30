@@ -2,29 +2,14 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Выбор языка</title>
+    <title>Математика с Сергеем Ивановичем</title>
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
             margin-top: 50px;
         }
-        h2 {
-            font-size: 30px;
-            margin-right: 20px;
-            display: inline-block;
-            background-color: yellow;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        button {
-            font-size: 26px;
-            padding: 15px 30px;
-            margin: 10px;
-            cursor: pointer;
-            display: inline-block;
-        }
-        #animation, #handsImage, #video {
+        #video, #secondVideo {
             width: 100%;
             height: auto;
             display: block;
@@ -36,108 +21,69 @@
         #message {
             font-size: 18px;
         }
-        #handsImage {
-            display: none; /* Initially hidden */
-        }
-        /* Скроем аудио элемент по умолчанию */
-        #audio {
-            display: none;
-        }
-
-        /* Центрирование регулятора громкости для аудиоозвучки текста */
         #audio {
             display: block;
-            margin: 20px auto;  /* Центрирование */
-            width: 300px;        /* Ограничение ширины для аккуратного вида */
+            margin: 20px auto;
+            width: 300px;
+        }
+        #content {
+            display: none;
         }
     </style>
 </head>
 <body>
 
-    <h2>Выберите язык:</h2>
-    <button onclick="selectLanguage('ru')">Русский</button>
-    <button onclick="selectLanguage('ro')">Română</button>
-
-    <!-- Комментарий: оригинальный запуск GIF-анимации -->
-    <!-- <img id="animation" src="https://github.com/Saricov/math-999/raw/main/GIF-3c9d6f8fda51fc63df84d164acd057e2.gif" alt="Анимация"> -->
-
-    <!-- Видео запускается автоматически с увеличенной громкостью -->
+    <!-- Первое видео запускается автоматически с аудиофайлом -->
     <video id="video" controls autoplay>
         <source src="https://github.com/Saricov/math-999/raw/main/call_SI-7.mp4" type="video/mp4">
         Ваш браузер не поддерживает элемент <code>video</code>.
     </video>
 
-    <div id="content" style="display:none;">
-        <img id="handsImage" src="https://github.com/Saricov/math-999/raw/main/math_tutor.jpeg" alt="Картинка с руками">
-        <p id="message"></p>
-        <audio id="audio" controls autoplay>
-            <source id="audioSource" src="" type="audio/mpeg">
-            Ваш браузер не поддерживает элемент <code>audio</code>.
-        </audio>
-        <p><a id="link1" href="#" target="_blank">Объявление на 999.md</a></p>
-        <p><a id="link2" href="#" target="_blank">Объявление на Makler.md</a></p>
-    </div>
+    <!-- Управление аудиофайлом, который будет проигрываться вместе с первым видео -->
+    <audio id="initialAudio" controls autoplay>
+        <source src="https://github.com/Saricov/math-999/raw/main/bettercall.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает элемент <code>audio</code>.
+    </audio>
 
-    <!-- Управление аудиофайлом call_SI.mp3 -->
-    <div id="initialAudioContainer" style="margin-top: 20px;">
-        <audio id="initialAudio" controls autoplay>
-            <source src="https://github.com/Saricov/math-999/raw/main/bettercall.mp3" type="audio/mpeg">
-            Ваш браузер не поддерживает элемент <code>audio</code>.
-        </audio>
+    <!-- Контент, который отобразится после второго видео -->
+    <div id="content">
+        <p><a id="link1" href="https://999.md/ro/88361202" target="_blank">Объявление на 999.md</a></p>
+        <p><a id="link2" href="https://makler.md/ru/job/education/an/61028" target="_blank">Объявление на Makler.md</a></p>
     </div>
 
     <script>
-        // Комментарий: оригинальный начальный звук
-        // var initialAudio = new Audio('https://github.com/Saricov/math-999/raw/main/DaPo-BrBad.mp3');
-        
-        // Новый начальный звук с регулятором громкости
+        var videoElement = document.getElementById('video');
         var initialAudioElement = document.getElementById('initialAudio');
-        var initialAudioContainer = document.getElementById('initialAudioContainer');
-        var audioElement = document.getElementById('audio');
+        var contentDiv = document.getElementById('content');
 
-        function selectLanguage(lang) {
-            var message, audioSrc, link1, link2;
-
-            // Останавливаем и сбрасываем начальный звук
+        // Функция для замены первого видео на второе через 2 секунды
+        videoElement.onended = function() {
+            // Останавливаем аудиофайл
             initialAudioElement.pause();
             initialAudioElement.currentTime = 0;
 
-            // Скрываем регулятор громкости для начального звука
-            initialAudioContainer.style.display = 'none';
+            // Через 2 секунды после окончания первого видео
+            setTimeout(function() {
+                // Очищаем экран
+                videoElement.style.display = 'none';
+                initialAudioElement.style.display = 'none';
 
-            // Показываем аудио плеер для озвучки текста
-            audioElement.style.display = 'block';
+                // Создаем второе видео
+                var secondVideo = document.createElement('video');
+                secondVideo.id = "secondVideo";
+                secondVideo.controls = true;
+                secondVideo.autoplay = true;
+                secondVideo.innerHTML = '<source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_Ru.mp4" type="video/mp4">Ваш браузер не поддерживает элемент <code>video</code>.';
+                
+                // Добавляем второе видео в DOM
+                document.body.insertBefore(secondVideo, contentDiv);
 
-            if (lang === 'ru') {
-                message = "Привет! Хотите подтянуть свои знания по математике? Мы поможем вам справиться с любыми задачами. Перейдите по ссылке и узнайте больше о наших занятиях. Простое и эффективное обучение для вашего успеха. Ждем вас!";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rus2.mp3";
-                link1 = "https://999.md/ro/88361202";
-                link2 = "https://makler.md/ru/job/education/an/61028";
-            } else if (lang === 'ro') {
-                message = "Salut! Vrei să-ți îmbunătățești cunoștințele de matematică? Te ajutăm să rezolvi orice problemă. Accesează linkul pentru a afla mai multe despre cursurile noastre. Învățare simplă și eficientă pentru succesul tău. Te așteptăm!";
-                audioSrc = "https://github.com/Saricov/math-999/raw/main/AudioMix_fon-QR_code_rom2.mp3";
-                link1 = "https://https://999.md/ro/88361202";
-                link2 = "https://makler.md/ro/job/education/an/61028";
-            }
+                // Показываем ссылки
+                contentDiv.style.display = 'block';
+            }, 2000); // 2 секунды задержки
+        };
 
-            document.getElementById('message').textContent = message;
-            document.getElementById('audioSource').src = audioSrc;
-            document.getElementById('audio').load();
-            document.getElementById('link1').href = link1;
-            document.getElementById('link1').textContent = "Объявление на 999.md";
-            document.getElementById('link2').href = link2;
-            document.getElementById('link2').textContent = "Объявление на Makler.md";
-
-            document.getElementById('content').style.display = 'block';
-            document.getElementById('video').style.display = 'none'; // Скрываем видео после выбора языка
-            document.getElementById('handsImage').style.display = 'block'; // Показываем картинку с руками
-        }
-
-        // Автоматическое воспроизведение видео с увеличенной громкостью
-        var videoElement = document.getElementById('video');
-        videoElement.volume = 1.0; // Устанавливаем громкость видео на максимум
-
-        // Начальное воспроизведение звука
+        // Автоматическое воспроизведение начального аудио
         initialAudioElement.play();
     </script>
 
