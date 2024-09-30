@@ -16,7 +16,12 @@
             margin: 20px 0;
         }
         #links {
-            font-size: 18px;
+            font-size: 40px; /* Увеличен размер текста ссылок */
+            margin-top: 20px;
+        }
+        #links a {
+            text-decoration: none;
+            color: blue;
         }
     </style>
 </head>
@@ -46,18 +51,16 @@
         var secondContent = document.getElementById('secondContent');
 
         firstVideo.onended = function() {
-            // Задержка в 2 секунды перед отображением второго видео и ссылок
-            setTimeout(function() {
-                // Скрыть первое видео
-                firstVideo.style.display = 'none';
+            // Скрыть первое видео
+            firstVideo.style.display = 'none';
 
-                // Показать второе видео и ссылки
-                secondContent.style.display = 'block';
+            // Показать второе видео и ссылки
+            secondContent.style.display = 'block';
 
-                // Автоматический запуск второго видео
-                var secondVideo = document.getElementById('secondVideo');
-                secondVideo.play();
-            }, 2000); // 2 секунды задержки
+            // Автоматический запуск второго видео
+            var secondVideo = document.getElementById('secondVideo');
+            secondVideo.volume = 1.0; // Устанавливаем максимальную громкость для второго видео
+            secondVideo.play();
         };
     </script>
 
