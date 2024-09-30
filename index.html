@@ -30,7 +30,12 @@
         }
         .phone-number {
             font-size: 40px;
-            color: black;
+        }
+        .red {
+            color: red;
+        }
+        .blue {
+            color: blue;
         }
     </style>
 </head>
@@ -48,32 +53,34 @@
         Ваш браузер не поддерживает элемент <code>video</code>.
     </video>
 
-    <!-- Элемент для отображения второго видео, третьего видео и ссылок -->
+    <!-- Элемент для отображения второго и третьего видео -->
     <div id="secondContent" style="display: none;">
         <!-- Второе видео -->
         <video id="secondVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_RU.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
+    </div>
 
-        <!-- Третье видео -->
-        <div id="thirdContent" style="display: none;">
-            <video id="thirdVideo" controls>
-                <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
-                Ваш браузер не поддерживает элемент <code>video</code>.
-            </video>
+    <div id="thirdContent" style="display: none;">
+        <!-- Третье видео (заменяет второе) -->
+        <video id="thirdVideo" controls>
+            <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
+            Ваш браузер не поддерживает элемент <code>video</code>.
+        </video>
 
-            <!-- Надпись "Надо звонить Сергею Ивановичу!" -->
-            <div class="red-text">Надо звонить Сергею Ивановичу!</div>
+        <!-- Надпись "Надо звонить Сергею Ивановичу!" -->
+        <div class="red-text">Надо звонить Сергею Ивановичу!</div>
 
-            <!-- Номер телефона -->
-            <div class="phone-number">(+373)0 68 1 535 68</div>
+        <!-- Номер телефона с цветными цифрами -->
+        <div class="phone-number">
+            (<span class="blue">+373</span>)0 <span class="red">68</span> 1 <span class="blue">535</span> <span class="red">68</span>
+        </div>
 
-            <!-- Ссылки на объявления -->
-            <div id="links">
-                <p><a href="https://999.md/ro/88361202" target="_blank">Моё объявление на 999.md</a></p>
-                <p><a href="https://makler.md/ru/job/education/an/61028" target="_blank">Моё объявление на Makler.md</a></p>
-            </div>
+        <!-- Ссылки на объявления -->
+        <div id="links">
+            <p><a href="https://999.md/ro/88361202" target="_blank">Моё объявление на 999.md</a></p>
+            <p><a href="https://makler.md/ru/job/education/an/61028" target="_blank">Моё объявление на Makler.md</a></p>
         </div>
     </div>
 
@@ -102,10 +109,14 @@
             secondVideo.volume = 1.0; // Устанавливаем максимальную громкость для второго видео
             secondVideo.play();
 
-            // Ожидание завершения второго видео для запуска третьего
+            // Ожидание завершения второго видео для замены его на третье
             secondVideo.onended = function() {
+                // Скрыть второе видео
+                secondContent.style.display = 'none';
+
+                // Показать третье видео и текст
                 var thirdContent = document.getElementById('thirdContent');
-                thirdContent.style.display = 'block'; // Показать третий блок
+                thirdContent.style.display = 'block';
 
                 var thirdVideo = document.getElementById('thirdVideo');
                 thirdVideo.volume = 1.0; // Устанавливаем громкость третьего видео
