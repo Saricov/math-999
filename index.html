@@ -27,6 +27,12 @@
 </head>
 <body>
 
+    <!-- Аудио для воспроизведения при запуске -->
+    <audio id="initialAudio" autoplay>
+        <source src="https://github.com/Saricov/math-999/raw/main/bettercall.mp3" type="audio/mpeg">
+        Ваш браузер не поддерживает элемент <code>audio</code>.
+    </audio>
+
     <!-- Первое видео с автоматически запускающимся аудио -->
     <video id="firstVideo" controls autoplay>
         <source src="https://github.com/Saricov/math-999/raw/main/call_SI-7.mp4" type="video/mp4">
@@ -40,8 +46,8 @@
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
         <div id="links">
-            <p><a href="https://999.md/ro/88361202" target="_blank">Объявление на 999.md</a></p>
-            <p><a href="https://makler.md/ru/job/education/an/61028" target="_blank">Объявление на Makler.md</a></p>
+            <p><a href="https://999.md/ro/88361202" target="_blank">Моё объявление на 999.md</a></p>
+            <p><a href="https://makler.md/ru/job/education/an/61028" target="_blank">Моё объявление на Makler.md</a></p>
         </div>
     </div>
 
@@ -49,8 +55,16 @@
         // Ожидание завершения первого видео
         var firstVideo = document.getElementById('firstVideo');
         var secondContent = document.getElementById('secondContent');
+        var initialAudio = document.getElementById('initialAudio');
+
+        // Воспроизведение MP3 при загрузке страницы
+        initialAudio.play();
 
         firstVideo.onended = function() {
+            // Остановка аудио, когда первое видео заканчивается
+            initialAudio.pause();
+            initialAudio.currentTime = 0;
+
             // Скрыть первое видео
             firstVideo.style.display = 'none';
 
