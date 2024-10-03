@@ -21,13 +21,18 @@
             margin-top: 20px;
         }
         #links a {
-            text-decoration: none;
+            text-decoration: underline; /* Подчеркивание ссылок */
             color: blue;
         }
         .red-text {
-            color: red;
+            color: darkred; /* Темно-красный цвет */
             font-size: 50px; /* Размер текста "Надо звонить Сергею Ивановичу!" */
             margin: 20px 0;
+            animation: blink 1s infinite; /* Эффект мерцания */
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
         .phone-number {
             font-size: 40px;
@@ -42,7 +47,10 @@
             color: red;
         }
         .purple {
-            color: #800080; /* Темно-фиолетовый для цифр 535 */
+            color: purple; /* Фиолетовый для цифр 535 */
+        }
+        .black {
+            color: black; /* Черный цвет для 769 и 785 */
         }
         .dark-orange {
             color: #FF8C00; /* Темно-оранжевый для второго номера */
@@ -97,7 +105,7 @@
 
         <!-- Второй номер телефона -->
         <div class="phone-number">
-            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="blue">785</span>
+            <span class="green">+373</span> <span class="black">769</span> <span class="red">40</span> <span class="black">785</span>
         </div>
 
         <!-- Ссылки на объявления -->
