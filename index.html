@@ -21,14 +21,15 @@
             margin-top: 20px;
         }
         #links a {
-            text-decoration: underline; /* Подчеркивание ссылок */
+            text-decoration: underline; /* Подчеркнутый текст */
             color: blue;
         }
         .red-text {
             color: darkred; /* Темно-красный цвет */
-            font-size: 50px; /* Размер текста "Надо звонить Сергею Ивановичу!" */
+            font-size: 50px; /* Размер текста "Better Call Sergey Ivanovich!" */
             margin: 20px 0;
-            animation: blink 1s infinite; /* Эффект мерцания */
+            font-family: 'Comic Sans MS', cursive, sans-serif; /* Шрифт похожий на рекламу Соло Гудмана */
+            animation: blink 1s step-start infinite; /* Мерцание текста */
         }
         @keyframes blink {
             0%, 100% { opacity: 1; }
@@ -47,13 +48,10 @@
             color: red;
         }
         .purple {
-            color: purple; /* Фиолетовый для цифр 535 */
-        }
-        .black {
-            color: black; /* Черный цвет для 769 и 785 */
+            color: purple; /* Фиолетовый цвет для цифр 535 */
         }
         .dark-orange {
-            color: #FF8C00; /* Темно-оранжевый для второго номера */
+            color: black; /* Черный для второго номера */
         }
     </style>
 </head>
@@ -95,8 +93,8 @@
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
 
-        <!-- Надпись "Надо звонить Сергею Ивановичу!" -->
-        <div class="red-text">Надо звонить Сергею Ивановичу!</div>
+        <!-- Надпись "Better Call Sergey Ivanovich!" -->
+        <div class="red-text">Better Call Sergey Ivanovich!</div>
 
         <!-- Первый номер телефона -->
         <div class="phone-number">
@@ -105,13 +103,13 @@
 
         <!-- Второй номер телефона -->
         <div class="phone-number">
-            <span class="green">+373</span> <span class="black">769</span> <span class="red">40</span> <span class="black">785</span>
+            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="blue">785</span>
         </div>
 
         <!-- Ссылки на объявления -->
         <div id="links">
-            <p><a href="https://999.md/ro/88361202" target="_blank">Моё объявление на 999.md</a></p>
-            <p><a href="https://makler.md/ru/job/education/an/61028" target="_blank">Моё объявление на Makler.md</a></p>
+            <p><a href="https://999.md/ro/88361202" target="_blank">My ads on 999.md</a></p>
+            <p><a href="https://makler.md/ru/job/education/an/61028" target="_blank">My ads on Makler.md</a></p>
         </div>
     </div>
 
