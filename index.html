@@ -15,6 +15,7 @@
             height: auto;
             display: block;
             margin: 20px 0;
+            position: relative; /* Позиция для наложения серой полосы */
         }
         #links {
             font-size: 40px; /* Увеличен размер текста ссылок */
@@ -52,6 +53,11 @@
             background-color: lightgray; /* Светло-серый фон для полосы */
             padding: 10px 0;
             font-size: 50px; /* Размер шрифта для Sergey Ivanovich */
+            position: absolute; /* Позиция для наложения на видео */
+            top: 0; /* Выровнено по верхнему краю */
+            left: 0; /* Выровнено по левому краю */
+            width: 100%; /* Ширина на всю страницу */
+            z-index: 1; /* Слой поверх видео */
         }
         @keyframes blink {
             0% { opacity: 1; }
