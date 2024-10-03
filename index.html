@@ -7,46 +7,31 @@
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            margin: 0; /* Убираем отступы для высшего выравнивания */
-            padding: 0; /* Убираем внутренние отступы */
+            margin-top: 50px;
             background-color: lightgray; /* Светло-серый фон */
         }
         video {
             width: 100%;
             height: auto;
             display: block;
-            margin: 0; /* Убираем отступы вокруг видео */
-        }
-        #topBanner {
-            background-color: lightgray; /* Светло-серый фон */
-            padding: 10px 0; /* Отступ сверху и снизу */
-            position: absolute; /* Абсолютное позиционирование */
-            top: 0; /* Выравнивание по верхнему краю */
-            left: 0; /* Выравнивание по левому краю */
-            width: 100%; /* Ширина на всю ширину экрана */
-            z-index: 10; /* На переднем плане */
+            margin: 20px 0;
         }
         #links {
             font-size: 40px; /* Увеличен размер текста ссылок */
             margin-top: 20px;
         }
         #links a {
-            text-decoration: underline; /* Подчеркнутый текст */
+            text-decoration: underline; /* Подчеркнутые ссылки */
             color: blue;
         }
         .red-text {
-            color: darkred; /* Темно-красный цвет */
-            font-size: 70px; /* Увеличен размер текста "Better Call Sergey Ivanovich!" */
+            color: darkred; /* Темно-красный цвет для надписи */
+            font-size: 75px; /* Увеличен размер текста "Better Call Sergey Ivanovich!" */
             margin: 20px 0;
-            font-family: 'Comic Sans MS', cursive, sans-serif; /* Шрифт похожий на рекламу Соло Гудмана */
-            animation: blink 1s step-start infinite; /* Мерцание текста */
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+            animation: blink 1s infinite; /* Эффект мерцания */
         }
         .phone-number {
-            font-size: 50px; /* Увеличен размер шрифта для номеров телефонов */
+            font-size: 40px;
         }
         .green {
             color: green;
@@ -58,33 +43,24 @@
             color: red;
         }
         .purple {
-            color: purple; /* Фиолетовый цвет для цифр 535 */
+            color: #800080; /* Фиолетовый для числа 535 */
         }
         .dark-orange {
-            color: black; /* Черный для второго номера */
+            color: black; /* Черный для числа 769 и 785 */
         }
-        .full-width-text {
-            color: darkred; /* Темно-красный цвет для текста */
-            font-size: 120px; /* Увеличенный размер шрифта */
-            font-family: 'Comic Sans MS', cursive, sans-serif; /* Шрифт похожий на рекламу Соло Гудмана */
-            margin: 20px 0;
-            width: 100%; /* Ширина текста на всю ширину экрана */
-            display: block; /* Отображение в блоке */
+        .gray-background {
+            background-color: lightgray; /* Светло-серый фон для полосы */
+            padding: 10px 0;
+            font-size: 50px; /* Размер шрифта для Sergey Ivanovich */
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Серый баннер с надписью и номерами телефонов -->
-    <div id="topBanner">
-        <div class="red-text">Better Call Sergey Ivanovich!</div>
-        <div class="phone-number">
-            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="purple">535</span> <span class="blue">68</span>
-        </div>
-        <div class="phone-number">
-            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="blue">785</span>
-        </div>
-    </div>
 
     <!-- Аудио для воспроизведения при запуске -->
     <audio id="initialAudio" autoplay>
@@ -97,6 +73,15 @@
         <source src="https://github.com/Saricov/math-999/raw/main/call_SI-7.mp4" type="video/mp4">
         Ваш браузер не поддерживает элемент <code>video</code>.
     </video>
+
+    <div class="gray-background">Better Call Sergey Ivanovich! 
+        <div class="phone-number">
+            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="purple">535</span> <span class="blue">68</span>
+        </div>
+        <div class="phone-number">
+            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="blue">785</span>
+        </div>
+    </div>
 
     <!-- Элемент для отображения второго видео -->
     <div id="secondContent" style="display: none;">
@@ -113,8 +98,6 @@
             <source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_RU.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
-        <!-- Надпись "Sergey Ivanovich" под третьим видео -->
-        <div class="full-width-text">Sergey Ivanovich</div>
     </div>
 
     <div id="fourthContent" style="display: none;">
@@ -191,4 +174,13 @@
                     // Показать четвертое видео
                     fourthContent.style.display = 'block';
 
-                    var fourthVideo = document.getElementById('fourth
+                    var fourthVideo = document.getElementById('fourthVideo');
+                    fourthVideo.volume = 1.0; // Устанавливаем громкость четвертого видео на максимум
+                    fourthVideo.play(); // Автоматический запуск четвертого видео
+                };
+            };
+        };
+    </script>
+
+</body>
+</html>
