@@ -45,22 +45,22 @@
             margin: 2px 0;
         }
         .top-phone-number {
-            color: orange; /* Цвет 68 и 68 оранжево-красный */
+            color: orangered; /* Цвет 68 и 68 оранжево-красный */
         }
         .middle-phone-number {
             color: green; /* Цвет 1 зеленый */
         }
         .bottom-phone-number {
-            color: black; /* Цвет 535 черный */
+            color: blue; /* Цвет 535 синий */
         }
         .purple-phone-number {
             color: purple; /* Цвет 769 и 785 фиолетовый */
         }
-        .black-phone-number {
-            color: black; /* Цвет 40 черный */
+        .green-phone-number {
+            color: green; /* Цвет 40 зеленый */
         }
-        .green {
-            color: green; /* Цвет +373 зеленый */
+        .black-phone-number {
+            color: black; /* Цвет +373 черный */
         }
         .full-width-text {
             color: darkred;
@@ -115,12 +115,12 @@
         <div class="red-text">Better Call Sergey Ivanovich!</div>
         <div class="phone-number">
             <span class="phone-symbol">📞</span> 
-            <span class="green">+373</span> <span class="top-phone-number">68</span> <span class="middle-phone-number">1</span> <span class="bottom-phone-number">535</span> <span class="top-phone-number">68</span> 
+            <span class="black-phone-number">+373</span> <span class="top-phone-number">68</span> <span class="middle-phone-number">1</span> <span class="bottom-phone-number">535</span> <span class="top-phone-number">68</span> 
             <span class="communication">Viber / WhatsApp</span> <!-- Увеличенный шрифт -->
         </div>
         <div class="phone-number">
             <span class="phone-symbol">📞</span> 
-            <span class="purple-phone-number">+373</span> <span class="purple-phone-number">769</span> <span class="bottom-phone-number">40</span> <span class="purple-phone-number">785</span> 
+            <span class="black-phone-number">+373</span> <span class="purple-phone-number">769</span> <span class="green-phone-number">40</span> <span class="purple-phone-number">785</span> 
             <span class="communication">Viber / WhatsApp</span> <!-- Увеличенный шрифт -->
         </div>
     </div>
@@ -204,9 +204,4 @@
 
             secondVideo.onended = function() {
                 // Скрыть второе видео
-                secondContent.style.display = 'none';
-
-                // Показать третье видео
-                thirdContent.style.display = 'block';
-                var thirdVideo = document.getElementById('thirdVideo');
-                thirdVideo.volume = 0.25;
+                secondContent.style.display = 'none
