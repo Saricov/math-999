@@ -20,20 +20,12 @@
         }
         #topBanner {
             background-color: lightgray;
-            padding: 0; /* Уменьшил высоту серой полосы для полного прикрытия жёлтой полосы */
+            padding: 0;
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 10;
-        }
-        #links {
-            font-size: 40px;
-            margin-top: 20px;
-        }
-        #links a {
-            text-decoration: underline;
-            color: blue;
         }
         .red-text {
             color: darkred;
@@ -44,69 +36,31 @@
         .phone-number {
             font-size: 50px;
         }
-        .green {
-            color: green;
-        }
-        .blue {
-            color: blue;
-        }
-        .red {
-            color: red;
-        }
-        .cherry {
-            color: #8B0000;
-        }
-        .dark-orange {
-            color: darkorange;
-        }
-        .purple {
-            color: purple;
-        }
-        .dark-green { /* Темно зелёный цвет для WhatsApp */
-            color: darkgreen;
-        }
-        .light-green {
-            color: lightgreen;
-        }
-        .full-width-text {
-            color: darkred;
-            font-size: 100px;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            margin: 10px 0;
-            width: 100%;
-            display: block;
-        }
-        .the-best {
-            color: darkblue;
+        .phone-symbol {
             font-size: 60px;
-            margin: 5px 0;
-            font-family: 'Comic Sans MS', cursive, sans-serif; /* Тот же шрифт, что и у заголовка */
         }
         .communication {
             font-size: 40px;
         }
-        #ads-links {
-            margin-top: 20px;
-            font-size: 35px;
-        }
-        #ads-links a {
-            text-decoration: underline;
-            color: blue;
-        }
-        .blinking {
-            animation: blinkingText 1s infinite;
-            color: darkred;
-            font-size: 70px;
-            margin: 20px 0;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-        }
-        @keyframes blinkingText {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        .phone-symbol {
-            font-size: 60px;
+
+        /* Медиа-запрос для уменьшения баннера на смартфонах */
+        @media only screen and (max-width: 600px) {
+            #topBanner {
+                position: relative;
+                padding: 10px; /* уменьшаем внутренние отступы */
+            }
+            .red-text {
+                font-size: 40px; /* уменьшаем размер текста */
+            }
+            .phone-number {
+                font-size: 30px; /* уменьшаем размер телефона */
+            }
+            .phone-symbol {
+                font-size: 30px; /* уменьшаем размер символа */
+            }
+            .communication {
+                font-size: 20px; /* уменьшаем размер текста для Viber и WhatsApp */
+            }
         }
     </style>
 </head>
@@ -154,7 +108,7 @@
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
         <!-- Надпись "The best math-tutor" -->
-        <div class="the-best">Sergey Ivanovich is the best math tutor for your child.</div> <!-- Изменённый текст -->
+        <div class="the-best">Sergey Ivanovich is the best math tutor for your child.</div>
     </div>
 
     <!-- Четвертое видео (ниже серой полосы) -->
