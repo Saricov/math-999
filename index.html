@@ -204,4 +204,15 @@
 
             secondVideo.onended = function() {
                 // Скрыть второе видео
-                secondContent.style.display = 'none
+                secondContent.style.display = 'none';
+
+                // Показать третье видео
+                thirdContent.style.display = 'block';
+                var thirdVideo = document.getElementById('thirdVideo');
+                thirdVideo.play();
+
+                thirdVideo.onended = function() {
+                    // Скрыть третье видео
+                    thirdContent.style.display = 'none';
+
+                    // Показать четвер
