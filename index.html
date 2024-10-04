@@ -19,7 +19,7 @@
         }
         #topBanner {
             background-color: lightgray;
-            padding: 4px 0; /* Уменьшена высота серой полосы */
+            padding: 2px 0; /* Уменьшена высота серой полосы */
             position: absolute;
             top: 0;
             left: 0;
@@ -41,7 +41,7 @@
             font-family: 'Comic Sans MS', cursive, sans-serif;
         }
         .phone-number {
-            font-size: 50px;
+            font-size: 60px; /* Увеличен размер */
             margin: 2px 0; /* Уменьшен интервал */
         }
         .green {
@@ -57,7 +57,7 @@
             color: #8B0000;
         }
         .dark-orange {
-            color: black;
+            color: darkorange; /* Установлен темно-оранжевый цвет */
         }
         .full-width-text {
             color: darkred;
@@ -68,22 +68,23 @@
             display: block;
         }
         .the-best {
-            color: darkblue;
+            color: darkred; /* Цвет соответствует Better Call... */
             font-size: 60px;
             margin: 5px 0;
         }
         .communication {
             color: darkgreen;
-            font-size: 37px; /* Увеличил шрифт для Viber и WhatsApp */
+            font-size: 42px; /* Увеличен шрифт для Viber и WhatsApp */
             margin-left: 10px;
         }
         #ads-links {
             margin-top: 20px;
-            font-size: 40px; /* Увеличил размер текста ссылок на объявления */
+            font-size: 50px; /* Увеличен размер текста ссылок на объявления */
         }
         #ads-links a {
             text-decoration: underline;
             color: blue;
+            margin: 0 20px; /* Расстояние между ссылками */
         }
         .blinking {
             animation: blinkingText 1s infinite;
@@ -102,9 +103,15 @@
         }
         .dark-orange-phone {
             color: darkorange; /* Установлен темно-оранжевый цвет */
+            border-radius: 50%; /* Кружок */
+            padding: 10px; /* Отступ для круга */
+            background-color: darkorange; /* Цвет фона для круга */
         }
         .purple-phone {
             color: purple; /* Установлен фиолетовый цвет */
+            border-radius: 50%; /* Кружок */
+            padding: 10px; /* Отступ для круга */
+            background-color: purple; /* Цвет фона для круга */
         }
     </style>
 </head>
@@ -116,12 +123,12 @@
         <div class="phone-number">
             <span class="phone-symbol dark-orange-phone">📞</span> 
             <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="cherry">535</span> <span class="blue">68</span> 
-            <span class="communication">Viber / WhatsApp</span> <!-- Темно-зелёный цвет и увеличенный шрифт -->
+            <span class="communication">Viber / WhatsApp</span> <!-- Увеличенный шрифт -->
         </div>
         <div class="phone-number">
             <span class="phone-symbol purple-phone">📞</span> 
-            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="dark-orange">785</span> <!-- Черный цвет для 785 -->
-            <span class="communication">Viber / WhatsApp</span> <!-- Темно-зелёный цвет и увеличенный шрифт -->
+            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="dark-orange">785</span> 
+            <span class="communication">Viber / WhatsApp</span> <!-- Увеличенный шрифт -->
         </div>
     </div>
 
@@ -165,8 +172,8 @@
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
 
-        <!-- Мерцающая надпись под четвёртым видео -->
-        <div class="blinking">Better Call Sergey Ivanovich!</div>
+        <!-- Изменённая надпись под четвёртым видео -->
+        <div class="blinking">Learn More - Click the links below!</div>
 
         <!-- Ссылки на объявления под четвертым видео -->
         <div id="ads-links">
@@ -215,17 +222,4 @@
 
                 thirdVideo.onended = function() {
                     // Скрыть третье видео
-                    thirdContent.style.display = 'none';
-
-                    // Показать четвёртое видео
-                    fourthContent.style.display = 'block';
-
-                    var fourthVideo = document.getElementById('fourthVideo');
-                    fourthVideo.volume = 1.0;
-                    fourthVideo.play();
-                };
-            };
-        };
-    </script>
-</body>
-</html>
+                    third
