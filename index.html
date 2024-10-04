@@ -19,11 +19,11 @@
         }
         #topBanner {
             background-color: lightgray;
-            padding: 8px 0;
+            padding: 10px 0; /* Уменьшено на 10 пикселей */
             position: absolute;
             top: 0;
             left: 0;
-            width: calc(100% - 20px); /* Уменьшил ширину серой полосы на 20 пикселей */
+            width: 100%; /* Ширина по горизонтали растянута до экрана */
             z-index: 10;
         }
         #links {
@@ -73,20 +73,19 @@
         }
         .communication {
             color: darkgreen;
-            font-size: 37px;
+            font-size: 45px; /* Увеличен текст Viber / WhatsApp */
             margin-left: 10px;
         }
         #ads-links {
             margin-top: 20px;
-            font-size: 50px; /* Увеличен размер текста ссылок */
+            font-size: 45px; /* Уменьшено немного для увеличения расстояния */
             width: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: space-around; /* Увеличение расстояния между ссылками */
         }
         #ads-links a {
             text-decoration: underline;
             color: blue;
-            margin: 0 10px;
         }
         .blinking {
             animation: blinkingText 1s infinite;
@@ -161,10 +160,10 @@
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
 
-        <!-- Мерцающая надпись под четвёртым видео -->
-        <div class="blinking">Better Call Sergey Ivanovich!</div>
+        <!-- Текст "Learn more..." вместо "Better Call Sergey Ivanovich!" -->
+        <div class="blinking">Learn more...</div>
 
-        <!-- Ссылки на объявления под четвертым видео -->
+        <!-- Ссылки на объявления под четвёртым видео -->
         <div id="ads-links">
             <a href="https://999.md" target="_blank">Ads on 999.md</a>
             <a href="https://makler.md" target="_blank">Ads on makler.md</a>
