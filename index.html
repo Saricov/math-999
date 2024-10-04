@@ -7,34 +7,46 @@
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            margin-top: 0px; /* Убрали отступ сверху */
-            background-color: lightgray; /* Светло-серый фон */
+            margin: 0;
+            padding: 0;
+            background-color: lightgray;
         }
         video {
             width: 100%;
             height: auto;
             display: block;
-            margin: 0px 0; /* Видео без отступов */
-            position: relative;
+            margin: 0;
+        }
+        #topBanner {
+            background-color: lightgray;
+            padding: 20px 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10;
         }
         #links {
-            font-size: 40px; /* Размер текста ссылок */
+            font-size: 40px;
             margin-top: 20px;
         }
         #links a {
-            text-decoration: underline; /* Подчеркнутые ссылки */
+            text-decoration: underline;
             color: blue;
         }
         .red-text {
-            color: darkred; /* Темно-красный цвет для надписи */
-            font-size: 75px; /* Размер текста "Better Call Sergey Ivanovich!" */
+            color: darkred;
+            font-size: 70px;
             margin: 20px 0;
-            animation: blink 1s infinite; /* Эффект мерцания */
-            font-family: 'Helvetica', sans-serif; /* Шрифт в стиле рекламы Сола Гудмана */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            animation: blink 1s step-start infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
         .phone-number {
-            font-size: 40px;
-            margin-top: 5px;
+            font-size: 50px;
         }
         .green {
             color: green;
@@ -45,38 +57,42 @@
         .red {
             color: red;
         }
-        .orange {
-            color: darkorange; /* Темно-оранжевый для числа 535 */
+        .cherry {
+            color: #8B0000; /* Вишнёвый цвет для числа 535 */
         }
-        .black {
-            color: black; /* Черный для числа 769 и 785 */
+        .dark-orange {
+            color: black; /* Черный для второго номера */
         }
-        .gray-background {
-            background-color: lightgray; /* Светло-серый фон */
-            padding: 20px 0; /* Увеличена высота полосы */
-            font-size: 50px; /* Размер шрифта для Sergey Ivanovich */
-            position: absolute; /* Позиция для наложения на видео */
-            top: 0; /* Выровнено по верхнему краю */
-            left: 0;
+        .full-width-text {
+            color: darkred;
+            font-size: 120px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 20px 0;
             width: 100%;
-            z-index: 1; /* Слой поверх видео */
+            display: block;
         }
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        .solo-font {
-            font-family: 'Helvetica', sans-serif; /* Шрифт, как у Сола Гудмана */
-        }
-        .app-name {
-            font-size: 20px;
+        /* Для надписей Viber и WhatsApp */
+        .communication {
+            color: #4CAF50; /* Цвет для Viber и WhatsApp */
+            font-size: 25px;
             margin-left: 10px;
-            color: darkblue; /* Цвет надписей Viber и WhatsApp */
         }
     </style>
 </head>
 <body>
+
+    <!-- Серый баннер с надписью и номерами телефонов -->
+    <div id="topBanner">
+        <div class="red-text">Better Call Sergey Ivanovich!</div>
+        <div class="phone-number">
+            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="cherry">535</span> <span class="blue">68</span> 
+            <span class="communication">Viber / WhatsApp</span> <!-- Добавлены Viber и WhatsApp -->
+        </div>
+        <div class="phone-number">
+            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="blue">785</span>
+            <span class="communication">Viber / WhatsApp</span> <!-- Добавлены Viber и WhatsApp -->
+        </div>
+    </div>
 
     <!-- Аудио для воспроизведения при запуске -->
     <audio id="initialAudio" autoplay>
@@ -90,56 +106,40 @@
         Ваш браузер не поддерживает элемент <code>video</code>.
     </video>
 
-    <!-- Серая полоса с текстом и номерами телефонов поверх первого видео -->
-    <div class="gray-background solo-font">Better Call Sergey Ivanovich! 
-        <div class="phone-number">
-            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="orange">535</span> <span class="blue">68</span>
-            <span class="app-name">Viber</span> <!-- Viber -->
-        </div>
-        <div class="phone-number">
-            <span class="green">+373</span> <span class="black">769</span> <span class="red">40</span> <span class="black">785</span>
-            <span class="app-name">WhatsApp</span> <!-- WhatsApp -->
-        </div>
-    </div>
-
-    <!-- Второе видео -->
+    <!-- Элемент для отображения второго видео -->
     <div id="secondContent" style="display: none;">
+        <!-- Второе видео (портрет) -->
         <video id="secondVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/wm_portret_1.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
     </div>
 
-    <!-- Третье видео -->
     <div id="thirdContent" style="display: none;">
+        <!-- Третье видео -->
         <video id="thirdVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_RU.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
         <!-- Надпись "Sergey Ivanovich" под третьим видео -->
-        <div class="solo-font" style="font-size: 75px; color: darkred; margin-top: 20px;">Sergey Ivanovich</div>
+        <div class="full-width-text">Sergey Ivanovich</div>
     </div>
 
-    <!-- Четвертое видео -->
     <div id="fourthContent" style="display: none;">
+        <!-- Четвертое видео (музыка) -->
         <video id="fourthVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
 
-        <!-- Надпись "Better Call Sergey Ivanovich!" -->
-        <div class="red-text solo-font">Better Call Sergey Ivanovich!</div>
-
         <!-- Первый номер телефона -->
         <div class="phone-number">
-            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="orange">535</span> <span class="blue">68</span>
-            <span class="app-name">Viber</span> <!-- Viber -->
+            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="cherry">535</span> <span class="blue">68</span>
         </div>
 
         <!-- Второй номер телефона -->
         <div class="phone-number">
-            <span class="green">+373</span> <span class="black">769</span> <span class="red">40</span> <span class="black">785</span>
-            <span class="app-name">WhatsApp</span> <!-- WhatsApp -->
+            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="blue">785</span>
         </div>
 
         <!-- Ссылки на объявления -->
@@ -150,6 +150,7 @@
     </div>
 
     <script>
+        // Ожидание завершения первого видео
         var firstVideo = document.getElementById('firstVideo');
         var secondContent = document.getElementById('secondContent');
         var thirdContent = document.getElementById('thirdContent');
@@ -160,35 +161,44 @@
         initialAudio.play();
 
         firstVideo.onended = function() {
+            // Остановка аудио, когда первое видео заканчивается
             initialAudio.pause();
             initialAudio.currentTime = 0;
 
-            firstVideo.style.display = 'none'; // Скрыть первое видео
-            secondContent.style.display = 'block'; // Показать второе видео
+            // Скрыть первое видео
+            firstVideo.style.display = 'none';
 
+            // Показать второе видео
+            secondContent.style.display = 'block';
+
+            // Устанавливаем пониженную громкость для второго видео
             var secondVideo = document.getElementById('secondVideo');
-            secondVideo.volume = 0.25; // Громкость второго видео
+            secondVideo.volume = 0.25;
             secondVideo.play();
 
             secondVideo.onended = function() {
-                secondContent.style.display = 'none'; // Скрыть второе видео
-                thirdContent.style.display = 'block'; // Показать третье видео
+                // Скрыть второе видео
+                secondContent.style.display = 'none';
+
+                // Показать третье видео
+                thirdContent.style.display = 'block';
 
                 var thirdVideo = document.getElementById('thirdVideo');
-                thirdVideo.volume = 1.0; // Громкость третьего видео
+                thirdVideo.volume = 1.0;
                 thirdVideo.play();
 
                 thirdVideo.onended = function() {
-                    thirdContent.style.display = 'none'; // Скрыть третье видео
-                    fourthContent.style.display = 'block'; // Показать четвертое видео
+                    // Скрыть третье видео
+                    thirdContent.style.display = 'none';
+
+                    // Показать четвертое видео
+                    fourthContent.style.display = 'block';
 
                     var fourthVideo = document.getElementById('fourthVideo');
-                    fourthVideo.volume = 1.0; // Громкость четвертого видео
                     fourthVideo.play();
                 };
             };
         };
     </script>
-
 </body>
 </html>
