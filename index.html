@@ -19,7 +19,7 @@
         }
         #topBanner {
             background-color: lightgray;
-            padding: 6px 0; /* Уменьшил высоту серой полосы на 2 мм */
+            padding: 4px 0; /* Уменьшена высота серой полосы */
             position: absolute;
             top: 0;
             left: 0;
@@ -37,11 +37,12 @@
         .red-text {
             color: darkred;
             font-size: 70px;
-            margin: 20px 0;
+            margin: 10px 0; /* Уменьшен интервал */
             font-family: 'Comic Sans MS', cursive, sans-serif;
         }
         .phone-number {
             font-size: 50px;
+            margin: 2px 0; /* Уменьшен интервал */
         }
         .green {
             color: green;
@@ -56,7 +57,7 @@
             color: #8B0000;
         }
         .dark-orange {
-            color: black; /* Черный цвет для 785 */
+            color: black;
         }
         .full-width-text {
             color: darkred;
@@ -73,7 +74,7 @@
         }
         .communication {
             color: darkgreen;
-            font-size: 46px; /* Увеличил шрифт для Viber и WhatsApp */
+            font-size: 37px; /* Увеличил шрифт для Viber и WhatsApp */
             margin-left: 10px;
         }
         #ads-links {
@@ -100,10 +101,10 @@
             font-size: 60px;
         }
         .dark-orange-phone {
-            color: darkorange; /* Темно-оранжевый цвет для верхнего номера */
+            color: darkorange; /* Установлен темно-оранжевый цвет */
         }
         .purple-phone {
-            color: purple; /* Фиолетовый цвет для нижнего номера */
+            color: purple; /* Установлен фиолетовый цвет */
         }
     </style>
 </head>
@@ -115,12 +116,12 @@
         <div class="phone-number">
             <span class="phone-symbol dark-orange-phone">📞</span> 
             <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="cherry">535</span> <span class="blue">68</span> 
-            <span class="communication">Viber / WhatsApp</span>
+            <span class="communication">Viber / WhatsApp</span> <!-- Темно-зелёный цвет и увеличенный шрифт -->
         </div>
         <div class="phone-number">
             <span class="phone-symbol purple-phone">📞</span> 
             <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="dark-orange">785</span> <!-- Черный цвет для 785 -->
-            <span class="communication">Viber / WhatsApp</span>
+            <span class="communication">Viber / WhatsApp</span> <!-- Темно-зелёный цвет и увеличенный шрифт -->
         </div>
     </div>
 
@@ -216,7 +217,7 @@
                     // Скрыть третье видео
                     thirdContent.style.display = 'none';
 
-                    // Показать четвертое видео
+                    // Показать четвёртое видео
                     fourthContent.style.display = 'block';
 
                     var fourthVideo = document.getElementById('fourthVideo');
