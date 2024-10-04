@@ -72,6 +72,14 @@
             font-size: 30px; /* Увеличил размер шрифта для надписей */
             margin-left: 10px;
         }
+        #ads-links {
+            margin-top: 20px;
+            font-size: 30px;
+        }
+        #ads-links a {
+            text-decoration: underline;
+            color: blue;
+        }
     </style>
 </head>
 <body>
@@ -120,14 +128,18 @@
         <div class="full-width-text">Sergey Ivanovich</div>
     </div>
 
-    <div id="fourthContent" style="display: none;">
-        <!-- Четвертое видео (музыка) -->
+    <!-- Четвертое видео (теперь ниже серой полосы) -->
+    <div id="fourthContent" style="display: none; margin-top: 300px;"> <!-- Видео ниже серой полосы -->
         <video id="fourthVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
 
-        <!-- Убрал серую полосу с последнего видео -->
+        <!-- Ссылки на объявления под четвертым видео -->
+        <div id="ads-links">
+            <a href="https://999.md" target="_blank">Ads on 999.md</a> |
+            <a href="https://makler.md" target="_blank">Ads on makler.md</a>
+        </div>
     </div>
 
     <script>
