@@ -19,7 +19,7 @@
         }
         #topBanner {
             background-color: lightgray;
-            padding: 20px 0;
+            padding: 10px 0; /* Вернул высоту серой полосы */
             position: absolute;
             top: 0;
             left: 0;
@@ -39,11 +39,7 @@
             font-size: 70px;
             margin: 20px 0;
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            animation: blink 1s step-start infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+            /* Убрал мерцание */
         }
         .phone-number {
             font-size: 50px;
@@ -61,7 +57,7 @@
             color: #8B0000; /* Вишнёвый цвет для числа 535 */
         }
         .dark-orange {
-            color: black; /* Черный для второго номера */
+            color: black; /* Черный для цифр 785 во втором номере */
         }
         .full-width-text {
             color: darkred;
@@ -71,10 +67,9 @@
             width: 100%;
             display: block;
         }
-        /* Для надписей Viber и WhatsApp */
         .communication {
-            color: #4CAF50; /* Цвет для Viber и WhatsApp */
-            font-size: 25px;
+            color: darkgreen; /* Темно-зелёный для Viber и WhatsApp */
+            font-size: 30px; /* Увеличил размер шрифта для надписей */
             margin-left: 10px;
         }
     </style>
@@ -86,11 +81,11 @@
         <div class="red-text">Better Call Sergey Ivanovich!</div>
         <div class="phone-number">
             <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="cherry">535</span> <span class="blue">68</span> 
-            <span class="communication">Viber / WhatsApp</span> <!-- Добавлены Viber и WhatsApp -->
+            <span class="communication">Viber / WhatsApp</span> <!-- Темно-зелёный цвет и увеличенный шрифт -->
         </div>
         <div class="phone-number">
-            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="blue">785</span>
-            <span class="communication">Viber / WhatsApp</span> <!-- Добавлены Viber и WhatsApp -->
+            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="dark-orange">785</span> <!-- Черный цвет для 785 -->
+            <span class="communication">Viber / WhatsApp</span> <!-- Темно-зелёный цвет и увеличенный шрифт -->
         </div>
     </div>
 
@@ -132,21 +127,7 @@
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
 
-        <!-- Первый номер телефона -->
-        <div class="phone-number">
-            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="cherry">535</span> <span class="blue">68</span>
-        </div>
-
-        <!-- Второй номер телефона -->
-        <div class="phone-number">
-            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="blue">785</span>
-        </div>
-
-        <!-- Ссылки на объявления -->
-        <div id="links">
-            <p><a href="https://999.md/ro/88361202" target="_blank">My ads on 999.md</a></p>
-            <p><a href="https://makler.md/ru/job/education/an/61028" target="_blank">My ads on Makler.md</a></p>
-        </div>
+        <!-- Убрал серую полосу с последнего видео -->
     </div>
 
     <script>
