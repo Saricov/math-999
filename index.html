@@ -7,18 +7,18 @@
         body {
             text-align: center;
             font-family: Arial, sans-serif;
-            margin-top: 50px;
+            margin-top: 0px; /* Убрали отступ сверху */
             background-color: lightgray; /* Светло-серый фон */
         }
         video {
             width: 100%;
             height: auto;
             display: block;
-            margin: 20px 0;
-            position: relative; /* Позиция для наложения серой полосы */
+            margin: 0px 0; /* Видео без отступов */
+            position: relative;
         }
         #links {
-            font-size: 40px; /* Увеличен размер текста ссылок */
+            font-size: 40px; /* Размер текста ссылок */
             margin-top: 20px;
         }
         #links a {
@@ -27,7 +27,7 @@
         }
         .red-text {
             color: darkred; /* Темно-красный цвет для надписи */
-            font-size: 75px; /* Увеличен размер текста "Better Call Sergey Ivanovich!" */
+            font-size: 75px; /* Размер текста "Better Call Sergey Ivanovich!" */
             margin: 20px 0;
             animation: blink 1s infinite; /* Эффект мерцания */
         }
@@ -43,26 +43,29 @@
         .red {
             color: red;
         }
-        .purple {
-            color: #800080; /* Фиолетовый для числа 535 */
+        .light-purple {
+            color: #DDA0DD; /* Светло-фиолетовый для числа 535 */
         }
-        .dark-orange {
+        .black {
             color: black; /* Черный для числа 769 и 785 */
         }
         .gray-background {
-            background-color: lightgray; /* Светло-серый фон для полосы */
+            background-color: lightgray; /* Светло-серый фон */
             padding: 10px 0;
             font-size: 50px; /* Размер шрифта для Sergey Ivanovich */
             position: absolute; /* Позиция для наложения на видео */
             top: 0; /* Выровнено по верхнему краю */
-            left: 0; /* Выровнено по левому краю */
-            width: 100%; /* Ширина на всю страницу */
+            left: 0;
+            width: 100%;
             z-index: 1; /* Слой поверх видео */
         }
         @keyframes blink {
             0% { opacity: 1; }
             50% { opacity: 0; }
             100% { opacity: 1; }
+        }
+        .solo-font {
+            font-family: 'Helvetica', sans-serif; /* Шрифт, похожий на рекламу Сола Гудмана */
         }
     </style>
 </head>
@@ -80,50 +83,52 @@
         Ваш браузер не поддерживает элемент <code>video</code>.
     </video>
 
-    <div class="gray-background">Better Call Sergey Ivanovich! 
+    <!-- Серая полоса с текстом и номерами телефонов поверх первого видео -->
+    <div class="gray-background solo-font">Better Call Sergey Ivanovich! 
         <div class="phone-number">
-            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="purple">535</span> <span class="blue">68</span>
+            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="light-purple">535</span> <span class="blue">68</span>
         </div>
         <div class="phone-number">
-            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="blue">785</span>
+            <span class="green">+373</span> <span class="black">769</span> <span class="red">40</span> <span class="black">785</span>
         </div>
     </div>
 
-    <!-- Элемент для отображения второго видео -->
+    <!-- Второе видео -->
     <div id="secondContent" style="display: none;">
-        <!-- Второе видео (портрет) -->
         <video id="secondVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/wm_portret_1.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
     </div>
 
+    <!-- Третье видео -->
     <div id="thirdContent" style="display: none;">
-        <!-- Третье видео -->
         <video id="thirdVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_RU.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
+        <!-- Надпись "Sergey Ivanovich" под третьим видео -->
+        <div class="solo-font" style="font-size: 75px; color: darkred; margin-top: 20px;">Sergey Ivanovich</div>
     </div>
 
+    <!-- Четвертое видео -->
     <div id="fourthContent" style="display: none;">
-        <!-- Четвертое видео (музыка) -->
         <video id="fourthVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
 
         <!-- Надпись "Better Call Sergey Ivanovich!" -->
-        <div class="red-text">Better Call Sergey Ivanovich!</div>
+        <div class="red-text solo-font">Better Call Sergey Ivanovich!</div>
 
         <!-- Первый номер телефона -->
         <div class="phone-number">
-            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="purple">535</span> <span class="blue">68</span>
+            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="light-purple">535</span> <span class="blue">68</span>
         </div>
 
         <!-- Второй номер телефона -->
         <div class="phone-number">
-            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="blue">785</span>
+            <span class="green">+373</span> <span class="black">769</span> <span class="red">40</span> <span class="black">785</span>
         </div>
 
         <!-- Ссылки на объявления -->
@@ -134,7 +139,6 @@
     </div>
 
     <script>
-        // Ожидание завершения первого видео
         var firstVideo = document.getElementById('firstVideo');
         var secondContent = document.getElementById('secondContent');
         var thirdContent = document.getElementById('thirdContent');
@@ -145,44 +149,31 @@
         initialAudio.play();
 
         firstVideo.onended = function() {
-            // Остановка аудио, когда первое видео заканчивается
             initialAudio.pause();
             initialAudio.currentTime = 0;
 
-            // Скрыть первое видео
-            firstVideo.style.display = 'none';
+            firstVideo.style.display = 'none'; // Скрыть первое видео
+            secondContent.style.display = 'block'; // Показать второе видео
 
-            // Показать второе видео
-            secondContent.style.display = 'block';
-
-            // Устанавливаем пониженную громкость для второго видео
             var secondVideo = document.getElementById('secondVideo');
-            secondVideo.volume = 0.25; // Установлена громкость второго видео на 0.25
+            secondVideo.volume = 0.25; // Громкость второго видео
             secondVideo.play();
 
-            // Ожидание завершения второго видео для замены его на третье
             secondVideo.onended = function() {
-                // Скрыть второе видео
-                secondContent.style.display = 'none';
-
-                // Показать третье видео
-                thirdContent.style.display = 'block';
+                secondContent.style.display = 'none'; // Скрыть второе видео
+                thirdContent.style.display = 'block'; // Показать третье видео
 
                 var thirdVideo = document.getElementById('thirdVideo');
-                thirdVideo.volume = 1.0; // Устанавливаем громкость третьего видео на максимум
-                thirdVideo.play(); // Автоматический запуск третьего видео
+                thirdVideo.volume = 1.0; // Громкость третьего видео
+                thirdVideo.play();
 
-                // Ожидание завершения третьего видео для замены его на четвертое
                 thirdVideo.onended = function() {
-                    // Скрыть третье видео
-                    thirdContent.style.display = 'none';
-
-                    // Показать четвертое видео
-                    fourthContent.style.display = 'block';
+                    thirdContent.style.display = 'none'; // Скрыть третье видео
+                    fourthContent.style.display = 'block'; // Показать четвертое видео
 
                     var fourthVideo = document.getElementById('fourthVideo');
-                    fourthVideo.volume = 1.0; // Устанавливаем громкость четвертого видео на максимум
-                    fourthVideo.play(); // Автоматический запуск четвертого видео
+                    fourthVideo.volume = 1.0; // Громкость четвертого видео
+                    fourthVideo.play();
                 };
             };
         };
