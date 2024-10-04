@@ -30,9 +30,11 @@
             font-size: 75px; /* Размер текста "Better Call Sergey Ivanovich!" */
             margin: 20px 0;
             animation: blink 1s infinite; /* Эффект мерцания */
+            font-family: 'Helvetica', sans-serif; /* Шрифт в стиле рекламы Сола Гудмана */
         }
         .phone-number {
             font-size: 40px;
+            margin-top: 5px;
         }
         .green {
             color: green;
@@ -43,15 +45,15 @@
         .red {
             color: red;
         }
-        .light-purple {
-            color: #DDA0DD; /* Светло-фиолетовый для числа 535 */
+        .orange {
+            color: darkorange; /* Темно-оранжевый для числа 535 */
         }
         .black {
             color: black; /* Черный для числа 769 и 785 */
         }
         .gray-background {
             background-color: lightgray; /* Светло-серый фон */
-            padding: 10px 0;
+            padding: 20px 0; /* Увеличена высота полосы */
             font-size: 50px; /* Размер шрифта для Sergey Ivanovich */
             position: absolute; /* Позиция для наложения на видео */
             top: 0; /* Выровнено по верхнему краю */
@@ -65,7 +67,12 @@
             100% { opacity: 1; }
         }
         .solo-font {
-            font-family: 'Helvetica', sans-serif; /* Шрифт, похожий на рекламу Сола Гудмана */
+            font-family: 'Helvetica', sans-serif; /* Шрифт, как у Сола Гудмана */
+        }
+        .app-name {
+            font-size: 20px;
+            margin-left: 10px;
+            color: darkblue; /* Цвет надписей Viber и WhatsApp */
         }
     </style>
 </head>
@@ -86,10 +93,12 @@
     <!-- Серая полоса с текстом и номерами телефонов поверх первого видео -->
     <div class="gray-background solo-font">Better Call Sergey Ivanovich! 
         <div class="phone-number">
-            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="light-purple">535</span> <span class="blue">68</span>
+            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="orange">535</span> <span class="blue">68</span>
+            <span class="app-name">Viber</span> <!-- Viber -->
         </div>
         <div class="phone-number">
             <span class="green">+373</span> <span class="black">769</span> <span class="red">40</span> <span class="black">785</span>
+            <span class="app-name">WhatsApp</span> <!-- WhatsApp -->
         </div>
     </div>
 
@@ -123,12 +132,14 @@
 
         <!-- Первый номер телефона -->
         <div class="phone-number">
-            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="light-purple">535</span> <span class="blue">68</span>
+            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="orange">535</span> <span class="blue">68</span>
+            <span class="app-name">Viber</span> <!-- Viber -->
         </div>
 
         <!-- Второй номер телефона -->
         <div class="phone-number">
             <span class="green">+373</span> <span class="black">769</span> <span class="red">40</span> <span class="black">785</span>
+            <span class="app-name">WhatsApp</span> <!-- WhatsApp -->
         </div>
 
         <!-- Ссылки на объявления -->
