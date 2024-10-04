@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Видео с объявлениями</title>
     <style>
         body {
@@ -19,7 +20,7 @@
         }
         #topBanner {
             background-color: lightgray;
-            padding: 8px 0; /* Уменьшил высоту серой полосы на 2 мм */
+            padding: 10px 0; /* Уменьшил высоту серой полосы на 50 пикселей */
             position: absolute;
             top: 0;
             left: 0;
@@ -39,7 +40,6 @@
             font-size: 70px;
             margin: 20px 0;
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            /* Убрал мерцание на серой полосе */
         }
         .phone-number {
             font-size: 50px;
@@ -57,11 +57,20 @@
             color: #8B0000;
         }
         .dark-orange {
-            color: black;
+            color: darkorange;
+        }
+        .purple {
+            color: purple;
+        }
+        .dark-green { /* Темно зелёный цвет для WhatsApp */
+            color: darkgreen;
+        }
+        .light-green {
+            color: lightgreen;
         }
         .full-width-text {
             color: darkred;
-            font-size: 100px; /* Уменьшил размер текста для 'Sergey Ivanovich' */
+            font-size: 100px;
             font-family: 'Comic Sans MS', cursive, sans-serif;
             margin: 10px 0;
             width: 100%;
@@ -73,13 +82,11 @@
             margin: 5px 0;
         }
         .communication {
-            color: darkgreen;
-            font-size: 37px; /* Увеличил шрифт для Viber и WhatsApp */
-            margin-left: 10px;
+            font-size: 40px;
         }
         #ads-links {
             margin-top: 20px;
-            font-size: 40px; /* Увеличил размер текста ссылок на объявления */
+            font-size: 35px;
         }
         #ads-links a {
             text-decoration: underline;
@@ -100,12 +107,6 @@
         .phone-symbol {
             font-size: 60px;
         }
-        .dark-orange-phone {
-            color: darkorange;
-        }
-        .purple-phone {
-            color: purple;
-        }
     </style>
 </head>
 <body>
@@ -114,14 +115,14 @@
     <div id="topBanner">
         <div class="red-text">Better Call Sergey Ivanovich!</div>
         <div class="phone-number">
-            <span class="phone-symbol dark-orange-phone">📞</span> 
-            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="cherry">535</span> <span class="blue">68</span> 
-            <span class="communication">Viber / WhatsApp</span> <!-- Темно-зелёный цвет и увеличенный шрифт -->
+            <span class="phone-symbol">📞</span> 
+            <span class="black">+373</span> <span class="red">68</span> <span class="green">1</span> <span class="blue">535</span> <span class="red">68</span> 
+            <span class="communication purple">Viber</span> / <span class="communication dark-green">WhatsApp</span>
         </div>
         <div class="phone-number">
-            <span class="phone-symbol purple-phone">📞</span> 
-            <span class="green">+373</span> <span class="dark-orange">769</span> <span class="red">40</span> <span class="dark-orange">785</span> <!-- Черный цвет для 785 -->
-            <span class="communication">Viber / WhatsApp</span> <!-- Темно-зелёный цвет и увеличенный шрифт -->
+            <span class="phone-symbol">📞</span> 
+            <span class="black">+373</span> <span class="purple">769</span> <span class="green">40</span> <span class="purple">785</span> 
+            <span class="communication purple">Viber</span> / <span class="communication dark-green">WhatsApp</span>
         </div>
     </div>
 
@@ -139,7 +140,6 @@
 
     <!-- Элемент для отображения второго видео -->
     <div id="secondContent" style="display: none;">
-        <!-- Второе видео (портрет) -->
         <video id="secondVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/wm_portret_1.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
@@ -166,7 +166,7 @@
         </video>
 
         <!-- Мерцающая надпись под четвёртым видео -->
-        <div class="blinking">Better Call Sergey Ivanovich!</div>
+        <div class="blinking">Learn more... Follow below.</div>
 
         <!-- Ссылки на объявления под четвертым видео -->
         <div id="ads-links">
@@ -176,7 +176,6 @@
     </div>
 
     <script>
-        // Ожидание завершения первого видео
         var firstVideo = document.getElementById('firstVideo');
         var secondContent = document.getElementById('secondContent');
         var thirdContent = document.getElementById('thirdContent');
@@ -187,26 +186,17 @@
         initialAudio.play();
 
         firstVideo.onended = function() {
-            // Остановка аудио, когда первое видео заканчивается
             initialAudio.pause();
             initialAudio.currentTime = 0;
-
-            // Скрыть первое видео
             firstVideo.style.display = 'none';
-
-            // Показать второе видео
             secondContent.style.display = 'block';
 
-            // Устанавливаем пониженную громкость для второго видео
             var secondVideo = document.getElementById('secondVideo');
             secondVideo.volume = 0.25;
             secondVideo.play();
 
             secondVideo.onended = function() {
-                // Скрыть второе видео
                 secondContent.style.display = 'none';
-
-                // Показать третье видео
                 thirdContent.style.display = 'block';
 
                 var thirdVideo = document.getElementById('thirdVideo');
@@ -214,4 +204,16 @@
                 thirdVideo.play();
 
                 thirdVideo.onended = function() {
-                    // Скрыть
+                    thirdContent.style.display = 'none';
+                    fourthContent.style.display = 'block';
+
+                    var fourthVideo = document.getElementById('fourthVideo');
+                    fourthVideo.volume = 0.5;
+                    fourthVideo.play();
+                };
+            };
+        };
+    </script>
+
+</body>
+</html>
