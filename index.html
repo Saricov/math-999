@@ -19,7 +19,7 @@
         }
         #topBanner {
             background-color: lightgray;
-            padding: 1px 0; /* Уменьшена высота серой полосы на 1 мм */
+            padding: 0 0; /* Уменьшена высота серой полосы на 5 пикселей */
             position: absolute;
             top: 0;
             left: 0;
@@ -43,7 +43,21 @@
         .phone-number {
             font-size: 60px; /* Увеличен размер */
             margin: 2px 0; /* Уменьшен интервал */
-            color: black; /* Цвет номера телефона черный */
+        }
+        .top-phone-number {
+            color: orange; /* Цвет 68 и 68 оранжево-красный */
+        }
+        .middle-phone-number {
+            color: green; /* Цвет 1 зеленый */
+        }
+        .bottom-phone-number {
+            color: black; /* Цвет 535 черный */
+        }
+        .purple-phone-number {
+            color: purple; /* Цвет 769 и 785 фиолетовый */
+        }
+        .black-phone-number {
+            color: black; /* Цвет 40 черный */
         }
         .green {
             color: green;
@@ -77,19 +91,21 @@
         }
         #ads-links {
             margin-top: 20px;
-            font-size: 50px; /* Увеличен размер текста ссылок на объявления */
+            font-size: 40px; /* Уменьшен размер текста ссылок на объявления */
         }
         #ads-links a {
             text-decoration: underline;
             color: blue;
-            margin: 0 20px; /* Расстояние между ссылками */
+            margin: 0 10px; /* Расстояние между ссылками */
         }
         .blinking {
             animation: blinkingText 1s infinite;
             color: darkred;
-            font-size: 70px;
+            font-size: 50px; /* Уменьшен шрифт текста "Learn more" */
             margin: 20px 0;
             font-family: 'Comic Sans MS', cursive, sans-serif;
+            width: 100%; /* По ширине экрана */
+            display: block;
         }
         @keyframes blinkingText {
             0% { opacity: 1; }
@@ -108,12 +124,12 @@
         <div class="red-text">Better Call Sergey Ivanovich!</div>
         <div class="phone-number">
             <span class="phone-symbol">📞</span> 
-            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="cherry">535</span> <span class="blue">68</span> 
+            <span class="top-phone-number">+373</span> <span class="top-phone-number">68</span> <span class="middle-phone-number">1</span> <span class="bottom-phone-number">535</span> <span class="top-phone-number">68</span> 
             <span class="communication">Viber / WhatsApp</span> <!-- Увеличенный шрифт -->
         </div>
         <div class="phone-number">
             <span class="phone-symbol">📞</span> 
-            <span class="green">+373</span> <span class="blue">769</span> <span class="red">40</span> <span class="blue">785</span> 
+            <span class="purple-phone-number">+373</span> <span class="purple-phone-number">769</span> <span class="bottom-phone-number">40</span> <span class="purple-phone-number">785</span> 
             <span class="communication">Viber / WhatsApp</span> <!-- Увеличенный шрифт -->
         </div>
     </div>
@@ -145,8 +161,8 @@
             <source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_RU.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
-        <!-- Надпись "The best math-tutor" -->
-        <div class="the-best">The best math-tutor</div>
+        <!-- Надпись "The best math-tutor" с добавлением дополнительного текста -->
+        <div class="the-best">The best math-tutor for you</div>
         <!-- Надпись "Sergey Ivanovich" под третьим видео -->
         <div class="full-width-text">Sergey Ivanovich</div>
     </div>
@@ -199,22 +215,4 @@
                 // Скрыть второе видео
                 secondContent.style.display = 'none';
 
-                // Показать третье видео
-                thirdContent.style.display = 'block';
-
-                var thirdVideo = document.getElementById('thirdVideo');
-                thirdVideo.volume = 1.0;
-                thirdVideo.play();
-
-                thirdVideo.onended = function() {
-                    // Скрыть третье видео
-                    thirdContent.style.display = 'none';
-
-                    // Показать четвертое видео
-                    fourthContent.style.display = 'block';
-                };
-            };
-        };
-    </script>
-</body>
-</html>
+                // Показать треть
