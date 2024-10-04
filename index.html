@@ -19,11 +19,11 @@
         }
         #topBanner {
             background-color: lightgray;
-            padding: 0; /* Уменьшена высота серой полосы на 5 пикселей */
+            padding: 6px 0; /* Уменьшил высоту серой полосы на 2 мм */
             position: absolute;
             top: 0;
             left: 0;
-            width: calc(100% - 10px); /* Уменьшена ширина серой полосы на 5 мм */
+            width: 100%;
             z-index: 10;
         }
         #links {
@@ -37,66 +37,59 @@
         .red-text {
             color: darkred;
             font-size: 70px;
-            margin: 10px 0;
+            margin: 20px 0;
             font-family: 'Comic Sans MS', cursive, sans-serif;
         }
         .phone-number {
-            font-size: 60px;
-            margin: 2px 0;
+            font-size: 50px;
         }
-        .top-phone-number {
-            color: orangered; /* Цвет 68 и 68 оранжево-красный */
+        .green {
+            color: green;
         }
-        .middle-phone-number {
-            color: green; /* Цвет 1 зеленый */
+        .blue {
+            color: blue;
         }
-        .bottom-phone-number {
-            color: blue; /* Цвет 535 синий */
+        .red {
+            color: red;
         }
-        .purple-phone-number {
-            color: purple; /* Цвет 769 и 785 фиолетовый */
+        .cherry {
+            color: #8B0000;
         }
-        .green-phone-number {
-            color: green; /* Цвет 40 зеленый */
-        }
-        .black-phone-number {
-            color: black; /* Цвет +373 черный */
+        .dark-orange {
+            color: black;
         }
         .full-width-text {
             color: darkred;
-            font-size: 100px; /* Уменьшил размер текста для 'Sergey Ivanovich' */
+            font-size: 100px; 
             font-family: 'Comic Sans MS', cursive, sans-serif;
             margin: 10px 0;
             width: 100%;
             display: block;
         }
         .the-best {
-            color: darkred; /* Цвет соответствует Better Call... */
+            color: darkblue;
             font-size: 60px;
             margin: 5px 0;
         }
         .communication {
             color: darkgreen;
-            font-size: 42px; /* Увеличен шрифт для Viber и WhatsApp */
+            font-size: 37px; 
             margin-left: 10px;
         }
         #ads-links {
             margin-top: 20px;
-            font-size: 40px; /* Уменьшен размер текста ссылок на объявления */
+            font-size: 40px; 
         }
         #ads-links a {
             text-decoration: underline;
             color: blue;
-            margin: 0 10px; /* Расстояние между ссылками */
         }
         .blinking {
             animation: blinkingText 1s infinite;
             color: darkred;
-            font-size: 50px; /* Уменьшен шрифт текста "Learn more" */
+            font-size: 70px;
             margin: 20px 0;
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            width: 100%; /* По ширине экрана */
-            display: block;
         }
         @keyframes blinkingText {
             0% { opacity: 1; }
@@ -106,40 +99,41 @@
         .phone-symbol {
             font-size: 60px;
         }
+        .dark-orange-phone {
+            color: darkorange;
+        }
+        .purple-phone {
+            color: purple;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Серый баннер с номерами телефонов -->
     <div id="topBanner">
         <div class="red-text">Better Call Sergey Ivanovich!</div>
         <div class="phone-number">
-            <span class="phone-symbol">📞</span> 
-            <span class="black-phone-number">+373</span> <span class="top-phone-number">68</span> <span class="middle-phone-number">1</span> <span class="bottom-phone-number">535</span> <span class="top-phone-number">68</span> 
-            <span class="communication">Viber / WhatsApp</span> <!-- Увеличенный шрифт -->
+            <span class="phone-symbol dark-orange-phone">📞</span> 
+            <span class="green">+373</span> <span class="blue">68</span> <span class="red">1</span> <span class="cherry">535</span> <span class="blue">68</span> 
+            <span class="communication">Viber / WhatsApp</span> 
         </div>
         <div class="phone-number">
-            <span class="phone-symbol">📞</span> 
-            <span class="black-phone-number">+373</span> <span class="purple-phone-number">769</span> <span class="green-phone-number">40</span> <span class="purple-phone-number">785</span> 
-            <span class="communication">Viber / WhatsApp</span> <!-- Увеличенный шрифт -->
+            <span class="phone-symbol purple-phone">📞</span> 
+            <span class="green">+373</span> <span class="purple-phone">769</span> <span class="dark-orange">40</span> <span class="purple-phone">785</span> 
+            <span class="communication">Viber / WhatsApp</span> 
         </div>
     </div>
 
-    <!-- Аудио для воспроизведения при запуске -->
     <audio id="initialAudio" autoplay>
         <source src="https://github.com/Saricov/math-999/raw/main/bettercall.mp3" type="audio/mpeg">
         Ваш браузер не поддерживает элемент <code>audio</code>.
     </audio>
 
-    <!-- Первое видео с автоматически запускающимся аудио -->
     <video id="firstVideo" controls autoplay>
         <source src="https://github.com/Saricov/math-999/raw/main/call_SI-7.mp4" type="video/mp4">
         Ваш браузер не поддерживает элемент <code>video</code>.
     </video>
 
-    <!-- Элемент для отображения второго видео -->
     <div id="secondContent" style="display: none;">
-        <!-- Второе видео (портрет) -->
         <video id="secondVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/wm_portret_1.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
@@ -147,28 +141,20 @@
     </div>
 
     <div id="thirdContent" style="display: none;">
-        <!-- Третье видео -->
         <video id="thirdVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/DrFa_SI_RU.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
-        <!-- Надпись "The best math-tutor" с добавлением дополнительного текста -->
         <div class="the-best">The best math-tutor for you</div>
-        <!-- Надпись "Sergey Ivanovich" под третьим видео -->
         <div class="full-width-text">Sergey Ivanovich</div>
     </div>
 
-    <!-- Четвертое видео (ниже серой полосы) -->
     <div id="fourthContent" style="display: none; margin-top: 300px;">
         <video id="fourthVideo" controls>
             <source src="https://github.com/Saricov/math-999/raw/main/SI_melody.mp4" type="video/mp4">
             Ваш браузер не поддерживает элемент <code>video</code>.
         </video>
-
-        <!-- Изменённая надпись под четвёртым видео -->
-        <div class="blinking">Learn More - Click the links below!</div>
-
-        <!-- Ссылки на объявления под четвертым видео -->
+        <div class="blinking">Learn more - follow the links below!</div>
         <div id="ads-links">
             <a href="https://999.md" target="_blank">Ads on 999.md</a> |
             <a href="https://makler.md" target="_blank">Ads on makler.md</a>
@@ -183,36 +169,35 @@
         var fourthContent = document.getElementById('fourthContent');
         var initialAudio = document.getElementById('initialAudio');
 
-        // Воспроизведение MP3 при загрузке страницы
         initialAudio.play();
 
         firstVideo.onended = function() {
-            // Остановка аудио, когда первое видео заканчивается
             initialAudio.pause();
             initialAudio.currentTime = 0;
-
-            // Скрыть первое видео
             firstVideo.style.display = 'none';
-
-            // Показать второе видео
             secondContent.style.display = 'block';
 
-            // Устанавливаем пониженную громкость для второго видео
             var secondVideo = document.getElementById('secondVideo');
             secondVideo.volume = 0.25;
             secondVideo.play();
 
             secondVideo.onended = function() {
-                // Скрыть второе видео
                 secondContent.style.display = 'none';
-
-                // Показать третье видео
                 thirdContent.style.display = 'block';
+
                 var thirdVideo = document.getElementById('thirdVideo');
+                thirdVideo.volume = 1.0;
                 thirdVideo.play();
 
                 thirdVideo.onended = function() {
-                    // Скрыть третье видео
                     thirdContent.style.display = 'none';
+                    fourthContent.style.display = 'block';
 
-                    // Показать четвер
+                    var fourthVideo = document.getElementById('fourthVideo');
+                    fourthVideo.play();
+                };
+            };
+        };
+    </script>
+</body>
+</html>
